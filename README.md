@@ -1,59 +1,95 @@
-# PawtectWebapp
+# Pawtect Web Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
+## Project Overview
 
-## Development server
+Pawtect is a web-based platform dedicated to supporting the Angeles City Veterinary Office Dog Pound and Animal Shelter.
 
-To start a local development server, run:
+It provides an intuitive and engaging frontend interface to help users:
+- Adopt pets by browsing available animals.
+- Volunteer for rescue efforts, fostering, or outreach programs.
+- Report stray or abused animals in need of help.
+- Donate to support animal welfare.
 
-```bash
-ng serve
-```
+## Advocacy & Mission
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Pawtect aims to empower the community to take action in saving and protecting animals. Through this platform, users can easily navigate adoption listings, participate in outreach programs, and contribute to the cause with minimal effort.
 
-## Code scaffolding
+## Tech Stack & Frameworks
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+**Frontend:** Angular (TypeScript, HTML, SCSS)
+- Component-Based Architecture for modularity and maintainability.
+- Angular Material for UI components and responsiveness.
+- SCSS Preprocessor for styling and theme customization.
+- Angular Routing for navigation and SPA-like experience.
 
-```bash
-ng generate component component-name
-```
+**UI/UX Design Principles**
+- Typography: Poppins (Headings), Figtree (Body Text) for modern and readable styling.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+**Color Palette:**
+- Primary: Onahau #C3E3FF (Calm & Trustworthy)
+- Accent: Negroni #FFDFC3 (Warm & Compassionate)
+- Card-Based & Containerized Design for better content organization.
 
-```bash
-ng generate --help
-```
+## Key Components & Features
 
-## Building
+**Home Page (/)**
+- Introduction to Pawtect’s advocacy.
+- Preview of adoptable animals.
+- CTA buttons for volunteering and donations.
 
-To build the project run:
+**About Us (/about)**
+- Overview of the organization and its mission-vision.
+- Details on ongoing initiatives & partners.
 
-```bash
-ng build
-```
+**Our Pack (/our-pack)**
+- Adoptable animal gallery with search & filter options.
+- Clicking an animal opens a modal pop-up with full details.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+**Be a Pawtector (/pawtector)**
+- Volunteer Signup Form (for outreach, fostering, events).
+- Report an Animal Form (to notify authorities of strays/abuse).
+- General Contact Form (for inquiries).
 
-## Running unit tests
+**Navigation & Layout**
+- Navbar Component: Persistent top navigation bar for seamless browsing.
+- Footer Component: Includes contact info, social media links, and legal pages.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Setup & Installation
 
-```bash
-ng test
-```
+1. **Install Angular CLI (if not installed)**
+    ```sh
+    npm install -g @angular/cli
+    ```
 
-## Running end-to-end tests
+2. **Clone the Repository**
+    ```sh
+    git clone https://github.com/wd-301-pawtectors/pawtect-web
+    cd pawtect-web
+    ```
 
-For end-to-end (e2e) testing, run:
+3. **Install Dependencies**
+    ```sh
+    npm install
+    ```
 
-```bash
-ng e2e
-```
+4. **Run the Application**
+    ```sh
+    ng serve --open
+    ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Meet the Team
 
-## Additional Resources
+- **UI/UX Designer:**
+    - Macapagal, Paul Justine M.
+- **Front-End Developers:**
+    - Francisco, Brent Axel S.
+    - Sison, Franchesca R.
+- **Back-End Developers:**
+    - Reyes, John Benedict P.
+    - Briones, Alyanna Cyrelle Kumi D.
+- **Full-Stack Developer, Team Lead:**
+    - Navarro, Marcel Angelo N.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+🐾 **Built with love for animals!** Together, let’s create a world where every stray finds a home. 🏡💙  
