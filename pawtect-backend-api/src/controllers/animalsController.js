@@ -1,6 +1,7 @@
 const Animal = require('../models/animalModel');
 
 // FETCH ALL ANIMALS
+/* The `exports.getAllAnimals` function is responsible for fetching all animals from the database. */
 exports.getAllAnimals = async (req, res) => {
     try {
         const animals = await Animal.find();
@@ -11,6 +12,10 @@ exports.getAllAnimals = async (req, res) => {
 };
 
 // SEARCH AND FILTER ANIMALS
+/* The `exports.searchAnimals` function is responsible for searching and filtering animals based on the
+query parameters provided in the request. It extracts the `type`, `age`, and `size` parameters from
+the request query object. Then, it constructs a query object based on the provided parameters. If
+any of the parameters are present, they are added to the query object. */
 exports.searchAnimals = async (req, res) => {
     const { type, age, size } = req.query;
 
