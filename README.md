@@ -180,7 +180,7 @@ The initial project setup/boilerplate was developed by **Marcel Angelo Navarro**
 - Paul Justine M. Macapagal
 
 ### 💻 Front-End Developers:
-- B
+- Brent Axel S. Francisco
 - Franchesca R. Sison
 
 ### 🛠️ Back-End Developers:
