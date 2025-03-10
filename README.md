@@ -177,7 +177,7 @@ The initial project setup/boilerplate was developed by **Marcel Angelo Navarro**
 ## 👥 Meet the Team
 
 ### 🎨 UI/UX Designer:
-- A
+- Paul Justine M. Macapagal
 
 ### 💻 Front-End Developers:
 - B
