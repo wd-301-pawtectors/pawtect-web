@@ -177,15 +177,15 @@ The initial project setup/boilerplate was developed by **Marcel Angelo Navarro**
 ## 👥 Meet the Team
 
 ### 🎨 UI/UX Designer:
-- Paul Justine M. Macapagal
+- A
 
 ### 💻 Front-End Developers:
-- Brent Axel S. Francisco
-- Franchesca R. Sison
+- B
+- C
 
 ### 🛠️ Back-End Developers:
-- John Benedict P. Reyes
-- Alyanna Cyrelle Kumi D. Briones
+- D
+- E
 
 ### 🚀 Lead Developer, Full-Stack Developer:
 - Marcel Angelo N. Navarro
