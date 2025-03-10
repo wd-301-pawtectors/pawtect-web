@@ -184,8 +184,8 @@ The initial project setup/boilerplate was developed by **Marcel Angelo Navarro**
 - Franchesca R. Sison
 
 ### 🛠️ Back-End Developers:
-- D
-- E
+- John Benedict P. Reyes
+- Alyanna Cyrelle Kumi D. Briones
 
 ### 🚀 Lead Developer, Full-Stack Developer:
 - Marcel Angelo N. Navarro
