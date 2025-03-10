@@ -21,7 +21,7 @@ const animalSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    imageUrl: {
+    imageURL: {
         type: String,
         required: true
     },
