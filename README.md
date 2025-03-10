@@ -12,6 +12,33 @@ Pawtect is a web-based platform dedicated to supporting the Angeles City Veterin
 
 Pawtect aims to empower communities to take action in protecting animals. By integrating technology with advocacy, we simplify the adoption process, encourage volunteering, and enhance animal welfare efforts.
 
+## 🙏 Acknowledgements
+
+The initial project setup/boilerplate was developed by **Marcel Angelo Navarro**. His contributions have been indispensable in laying the foundation for Pawtect Web Application.
+
+### 🚀 Major Phases in the Project Setup
+
+#### Phase 1: Initial Setup
+- **Repository Creation:** Set up the GitHub repository for version control.
+- **Boilerplate Code:** Establish the initial project structure and boilerplate code for both frontend and backend.
+
+#### Phase 2: Frontend Development
+- **Component Design:** Develop reusable Angular components.
+- **UI/UX Implementation:** Integrate Angular Material and SCSS for styling.
+- **Routing:** Set up Angular routing for navigation between pages.
+
+#### Phase 3: Backend Development
+- **API Design:** Define RESTful API endpoints using Node.js and Express.
+- **Database Integration:** Connect to MongoDB Atlas and set up Mongoose schemas.
+- **Middleware Configuration:** Implement CORS and Body-Parser for handling API requests.
+
+#### Phase 4: Testing & Deployment
+- **Unit Testing:** Write unit tests for both frontend and backend components.
+- **Integration Testing:** Ensure seamless integration between frontend and backend.
+
+#### Phase 5: Documentation & Maintenance
+- **Documentation:** Create comprehensive documentation for setup, usage, and API endpoints.
+
 ## 🛠️ Tech Stack & Frameworks
 
 ### Frontend
@@ -150,18 +177,18 @@ Pawtect aims to empower communities to take action in protecting animals. By int
 ## 👥 Meet the Team
 
 ### 🎨 UI/UX Designer:
-- Macapagal, Paul Justine M.
+- Paul Justine M. Macapagal
 
 ### 💻 Front-End Developers:
-- Francisco, Brent Axel S.
-- Sison, Franchesca R.
+- Brent Axel S. Francisco
+- Franchesca R. Sison
 
 ### 🛠️ Back-End Developers:
-- Reyes, John Benedict P.
-- Briones, Alyanna Cyrelle Kumi D.
+- John Benedict P. Reyes
+- Alyanna Cyrelle Kumi D. Briones
 
 ### 🚀 Lead Developer, Full-Stack Developer:
-- Navarro, Marcel Angelo N.
+- Marcel Angelo N. Navarro
 
 ## 📜 License
 This project is licensed under the MIT License.
