@@ -132,14 +132,14 @@ The initial project setup/boilerplate was developed by **Marcel Angelo Navarro**
     Create a `.env` file in the root directory:
     ```
     MONGODB_URI=<your_mongodb_connection_string>
-    PORT=5000
+    PORT=3000
     ```
 
 4. **Run the Backend Server**
     ```sh
     npm start
     ```
-    The API will be available at [http://localhost:5000/api/animals](http://localhost:5000/api/animals).
+    The API will be available at [http://localhost:3000/api/animals](http://localhost:3000/api/animals).
 
 ## 📡 API Documentation
 

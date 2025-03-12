@@ -19,7 +19,7 @@ export class OurPackComponent implements OnInit {
   }
 
   fetchAnimals(): void {
-    this.http.get<any[]>('http://localhost:5000/api/animals')
+    this.http.get<any[]>('http://localhost:3000/api/animals')
       .subscribe({
         next: data => this.animals = data,
         error: error => console.error('Error Fetching Animals: ', error)
