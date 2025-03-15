@@ -1,0 +1,148 @@
+// COLOR AND FONT VARIABLES
+$primary-color: #C3E3FF; // ONAHAU
+$accent-color: #FFDFC3; // NEGRONI
+$dark-text: #000;
+$light-text: #fff;
+$menu-bg: rgba(195, 227, 255, 0.95);
+$transition: .5s ease-in-out;
+$primary-font: 'Poppins', sans-serif;
+$secondary-font: 'Figtree', sans-serif;
+
+// BASE NAVBAR STYLES
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: $primary-color;
+    padding: 1rem 1.5rem;
+    z-index: 100;
+    transition: $transition;
+    box-sizing: border-box;
+    font-family: $secondary-font;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    &__logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-decoration: none;
+        color: $dark-text;
+        font-family: $primary-font;
+    }
+
+    &__toggle {
+        background: none;
+        border: none;
+        font-size: 1.8rem;
+        cursor: pointer;
+        display: block;
+        color: $dark-text;
+        transition: opacity $transition;
+        
+        &--hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    &__menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        max-width: 300px;
+        height: 100%;
+        background: $menu-bg;
+        box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2);
+        transition: right $transition;
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    &__menu--active {
+        right: 0;
+    }
+
+    &__close {
+        align-self: flex-end;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin-top: 2rem;
+
+        li {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: $dark-text;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: $transition;
+            font-family: $primary-font;
+
+            &:hover {
+                color: $accent-color;
+            }
+        }
+    }
+}
+
+// RESPONSIVE NAVBAR STYLES
+@media (min-width: 768px) {
+    .navbar {
+        padding: 1.2rem 2rem;
+
+        &__toggle {
+            display: none;
+        }
+
+        &__menu {
+            position: static;
+            width: auto;
+            height: auto;
+            background: transparent;
+            box-shadow: none;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0;
+        }
+
+        &__list {
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+
+            li {
+                margin: 0;
+            }
+
+            a {
+                font-size: 1rem;
+            }
+        }
+
+        &__close {
+            display: none;
+        }
+    }
+}
