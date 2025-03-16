@@ -1,7 +1,9 @@
 <header class="navbar">
     <div class="navbar__container">
         <!-- LOGO -->
-        <a routerLink="/" class="navbar__logo">Pawtect</a>
+        <a routerLink="/" class="navbar__logo">
+            <img src="assets/images/pawtect-logo.svg" alt="Logo of Pawtect">
+        </a>
 
         <!-- MOBILE MENU TOGGLE / HAMBURGER -->
         <button class="navbar__toggle" [class.navbar__toggle--hidden]="menuOpen" (click)="toggleMenu()">
