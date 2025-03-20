@@ -1,37 +1,74 @@
+// Colors
 $primary-color: #C3E3FF;
 $accent-color: #FFDFC3;
 $dark-text: #1a1a1a;
-$light-text: #fff;
+$light-text: #ffffff;
 $footer-bg: $primary-color;
 $footer-text: $dark-text;
-$transition: 0.3s ease-in-out;
-$primary-font: "Poppins", sans-serif;
-$secondary-font: "Figtree", sans-serif;
-$base-font-size: 16px;
+
+// Fonts
+$primary-font: 'Poppins', sans-serif;
+$secondary-font: 'Figtree', sans-serif;
+
+// Font Sizes
+$font-size-sm: 0.9rem;
+$font-size-md: 1rem;
+$font-size-lg: 1.2rem;
+$font-size-xl: 1.5rem;
+
+// Spacing
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+
+// Breakpoints
+$mobile: 767px;
+$tablet: 1023px;
+$desktop: 1024px;
+
+// Responsive Mixins
+@mixin mobile {
+    @media (max-width: #{$mobile}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: 768px) and (max-width: #{$tablet}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}
 
 .footer {
     background-color: $footer-bg;
     color: $footer-text;
     font-family: $primary-font;
-    padding: 1.5rem 1rem;
+    padding: $spacing-lg $spacing-sm;
     margin-top: auto;
 
     &__banner {
         background-color: $accent-color;
         color: $dark-text;
         width: 100vw;
-        padding-top: 0.5em;
-        padding-bottom: .5em;
+        padding-top: $spacing-sm;
+        padding-bottom: $spacing-sm;
         text-align: center;
         position: relative;
         left: 50%;
         right: 50%;
         margin-left: -50vw;
         margin-right: -50vw;
-        margin-bottom: 1.5em;
+        margin-bottom: $spacing-lg;
 
         h2 {
-            font-size: .9rem;
+            font-size: $font-size-sm;
             font-weight: 700;
         }
     }
@@ -41,21 +78,20 @@ $base-font-size: 16px;
         flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: 3rem;
+        gap: $spacing-xl;
         max-width: 90%;
         margin: 0 auto;
     }
 
     &__about {
-
         .footer__logo {
             width: 5em;
-            margin-top: 1rem;
+            margin-top: $spacing-sm;
         }
 
         p {
             font-family: $secondary-font;
-            font-size: .9rem;
+            font-size: $font-size-sm;
             line-height: 1.5;
         }
     }
@@ -63,18 +99,18 @@ $base-font-size: 16px;
     &__links,
     &__contact {
         h3 {
-            font-size: 1.1rem;
+            font-size: $font-size-md;
             font-weight: 600;
             text-transform: uppercase;
         }
 
         ul {
             list-style: none;
-            font-size: .9rem;
+            font-size: $font-size-sm;
             padding: 0;
 
             li {
-                margin-bottom: 0.5rem;
+                margin-bottom: $spacing-sm / 2;
 
                 a {
                     color: $footer-text;
@@ -85,8 +121,8 @@ $base-font-size: 16px;
                     }
                 }
 
-                i { 
-                    margin-right: .5rem;
+                i {
+                    margin-right: $spacing-sm / 2;
                     color: $dark-text;
                 }
             }
@@ -95,26 +131,27 @@ $base-font-size: 16px;
 
     &__bottom {
         text-align: center;
-        margin-top: 2rem;
+        margin-top: $spacing-lg;
         border-top: 1px solid rgba($dark-text, 0.2);
-        font-size: 0.9rem;
+        font-size: $font-size-sm;
 
         p {
-            padding-top: 1.2rem;
+            padding-top: $spacing-md;
             font-weight: bold;
         }
     }
 }
 
-@media (min-width: 768px) {
+@include tablet {
     .footer {
+        padding: $spacing-xl $spacing-md;
 
         &__banner {
-            padding-top: 0.05rem;
-            padding-bottom: 0.05rem;
-            
+            padding-top: $spacing-sm / 2;
+            padding-bottom: $spacing-sm / 2;
+
             h2 {
-                font-size: 1.3rem;
+                font-size: $font-size-lg;
             }
         }
 
@@ -122,7 +159,7 @@ $base-font-size: 16px;
             flex-direction: row;
             align-items: flex-start;
             justify-content: space-between;
-            gap: 4rem;
+            gap: $spacing-xl;
             max-width: 95%;
         }
 
@@ -130,15 +167,15 @@ $base-font-size: 16px;
             flex: 1;
 
             p {
-                font-size: .9rem;
+                font-size: $font-size-sm;
             }
         }
 
         &__contact {
             flex: 1;
-        
+
             li {
-                font-size: .9rem;
+                font-size: $font-size-sm;
             }
         }
 
@@ -148,19 +185,29 @@ $base-font-size: 16px;
     }
 }
 
-@media (min-width: 1024px) {
+@include desktop {
     .footer {
-        padding-top: 3rem;
+        padding-top: $spacing-xl;
 
         &__container {
-            gap: 10em;
+            gap: $spacing-xl * 2;
+            flex-direction: row;
         }
 
         &__bottom {
-            font-size: 1rem;
+            font-size: $font-size-md;
+        }
+
+        &__links {
+            flex: 1;
+        }
+
+        &__contact {
+            flex: 1;
         }
 
         &__about {
+            flex: 1;
 
             .footer__logo {
                 display: block;
