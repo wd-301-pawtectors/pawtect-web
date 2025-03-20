@@ -1,19 +1,60 @@
+// Colors
 $primary-color: #C3E3FF;
 $accent-color: #FFDFC3;
 $dark-text: #1a1a1a;
-$light-text: #f2f2f2;
+$light-text: #ffffff;
 $menu-bg: rgba(195, 227, 255, 0.95);
-$transition: .5s ease-in-out;
+
+// Fonts
 $primary-font: 'Poppins', sans-serif;
 $secondary-font: 'Figtree', sans-serif;
 
+// Font Sizes
+$font-size-sm: 0.9rem;
+$font-size-md: 1rem;
+$font-size-lg: 1.2rem;
+$font-size-xl: 1.5rem;
+
+// Spacing
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+
+// Breakpoints
+$mobile: 767px;
+$tablet: 1023px;
+$desktop: 1024px;
+
+// Transitions
+$transition: .5s ease-in-out;
+
+// Responsive Mixins
+@mixin mobile {
+    @media (max-width: #{$mobile}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: 768px) and (max-width: #{$tablet}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}
+
 .navbar {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
     background: $primary-color;
-    padding: 1rem 1.5rem;
+    padding: $spacing-sm $spacing-md;
     z-index: 100;
     transition: $transition;
     box-sizing: border-box;
@@ -92,7 +133,7 @@ $secondary-font: 'Figtree', sans-serif;
 
         a {
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: $font-size-md;
             font-weight: bold;
             color: $dark-text;
             display: flex;
@@ -110,10 +151,8 @@ $secondary-font: 'Figtree', sans-serif;
             }
         }
     }
-}
 
-@media (min-width: 768px) and (max-width: 1023px) {
-    .navbar {
+    @include tablet {
         padding: 1.2rem 2rem;
 
         &__toggle {
@@ -124,7 +163,7 @@ $secondary-font: 'Figtree', sans-serif;
             position: fixed;
             top: 0;
             right: -100%;
-            width: 75%;
+            width: 50%;
             max-width: 13.75rem;
             height: 100%;
             background: $menu-bg;
@@ -151,7 +190,7 @@ $secondary-font: 'Figtree', sans-serif;
             }
 
             a {
-                font-size: 1.2rem;
+                font-size: $font-size-lg;
             }
         }
 
@@ -159,11 +198,9 @@ $secondary-font: 'Figtree', sans-serif;
             display: block;
         }
     }
-}
 
-@media (min-width: 1024px) {
-    .navbar {
-        padding: 1.5rem 3rem;
+    @include desktop {
+        padding: $spacing-lg $spacing-xl;
 
         &__container {
             max-width: 90rem;
@@ -176,7 +213,7 @@ $secondary-font: 'Figtree', sans-serif;
             flex: 0 1 auto;
 
             img {
-                max-width: 6em;
+                max-width: 6rem;
             }
         }
 
@@ -210,7 +247,7 @@ $secondary-font: 'Figtree', sans-serif;
             }
 
             a {
-                font-size: 1.1rem;
+                font-size: $font-size-md;
                 white-space: nowrap;
                 flex: 1;
 
