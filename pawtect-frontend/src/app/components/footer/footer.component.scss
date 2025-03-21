@@ -1,14 +1,14 @@
 // Colors
-$primary-color: #C3E3FF;
-$accent-color: #FFDFC3;
+$primary-color: #c3e3ff;
+$accent-color: #ffdfc3;
 $dark-text: #1a1a1a;
 $light-text: #ffffff;
 $footer-bg: $primary-color;
 $footer-text: $dark-text;
 
 // Fonts
-$primary-font: 'Poppins', sans-serif;
-$secondary-font: 'Figtree', sans-serif;
+$primary-font: "Poppins", sans-serif;
+$secondary-font: "Figtree", sans-serif;
 
 // Font Sizes
 $font-size-sm: 0.9rem;
@@ -29,198 +29,197 @@ $desktop: 1024px;
 
 // Responsive Mixins
 @mixin mobile {
-    @media (max-width: #{$mobile}) {
-        @content;
-    }
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
 }
 
 @mixin tablet {
-    @media (min-width: 768px) and (max-width: #{$tablet}) {
-        @content;
-    }
+  @media (min-width: 768px) and (max-width: #{$tablet}) {
+    @content;
+  }
 }
 
 @mixin desktop {
-    @media (min-width: #{$desktop}) {
-        @content;
-    }
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
 }
 
 .footer {
-    background-color: $footer-bg;
-    color: $footer-text;
-    font-family: $primary-font;
-    padding: $spacing-lg $spacing-sm;
-    margin-top: auto;
+  background-color: $footer-bg;
+  color: $footer-text;
+  font-family: $primary-font;
+  padding: $spacing-lg $spacing-sm;
+  margin-top: auto;
 
-    &__banner {
-        background-color: $accent-color;
-        color: $dark-text;
-        width: 100vw;
-        padding-top: $spacing-sm;
-        padding-bottom: $spacing-sm;
-        text-align: center;
-        position: relative;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
-        margin-bottom: $spacing-lg;
+  &__banner {
+    background-color: $accent-color;
+    color: $dark-text;
+    width: 100vw;
+    padding-top: $spacing-sm;
+    padding-bottom: $spacing-sm;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-bottom: $spacing-lg;
 
-        h2 {
-            font-size: $font-size-sm;
-            font-weight: 700;
-        }
+    h2 {
+      font-size: $font-size-sm;
+      font-weight: 700;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: $spacing-xl;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  &__about {
+    .footer__logo {
+      width: 5em;
+      margin-top: $spacing-sm;
     }
 
-    &__container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: $spacing-xl;
-        max-width: 90%;
-        margin: 0 auto;
+    p {
+      font-family: $secondary-font;
+      font-size: $font-size-sm;
+      line-height: 1.5;
+    }
+  }
+
+  &__links,
+  &__contact {
+    h3 {
+      font-size: $font-size-md;
+      font-weight: 600;
+      text-transform: uppercase;
     }
 
-    &__about {
-        .footer__logo {
-            width: 5em;
-            margin-top: $spacing-sm;
+    ul {
+      list-style: none;
+      font-size: $font-size-sm;
+      padding: 0;
+
+      li {
+        margin-bottom: $spacing-sm / 2;
+
+        a {
+          color: $footer-text;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
         }
 
-        p {
-            font-family: $secondary-font;
-            font-size: $font-size-sm;
-            line-height: 1.5;
+        i {
+          margin-right: $spacing-sm / 2;
+          color: $dark-text;
         }
+      }
     }
+  }
 
-    &__links,
-    &__contact {
-        h3 {
-            font-size: $font-size-md;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
+  &__bottom {
+    text-align: center;
+    margin-top: $spacing-lg;
+    border-top: 1px solid rgba($dark-text, 0.2);
+    font-size: $font-size-sm;
 
-        ul {
-            list-style: none;
-            font-size: $font-size-sm;
-            padding: 0;
-
-            li {
-                margin-bottom: $spacing-sm / 2;
-
-                a {
-                    color: $footer-text;
-                    text-decoration: none;
-
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
-
-                i {
-                    margin-right: $spacing-sm / 2;
-                    color: $dark-text;
-                }
-            }
-        }
+    p {
+      padding-top: $spacing-md;
+      font-weight: bold;
     }
-
-    &__bottom {
-        text-align: center;
-        margin-top: $spacing-lg;
-        border-top: 1px solid rgba($dark-text, 0.2);
-        font-size: $font-size-sm;
-
-        p {
-            padding-top: $spacing-md;
-            font-weight: bold;
-        }
-    }
+  }
 }
 
 @include tablet {
-    .footer {
-        padding: $spacing-xl $spacing-md;
+  .footer {
+    padding: $spacing-xl $spacing-md;
 
-        &__banner {
-            padding-top: $spacing-sm / 2;
-            padding-bottom: $spacing-sm / 2;
+    &__banner {
+      padding-top: $spacing-sm / 2;
+      padding-bottom: $spacing-sm / 2;
 
-            h2 {
-                font-size: $font-size-lg;
-            }
-        }
-
-        &__container {
-            flex-direction: row;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: $spacing-xl;
-            max-width: 95%;
-        }
-
-        &__about {
-            flex: 1;
-
-            p {
-                font-size: $font-size-sm;
-            }
-        }
-
-        &__contact {
-            flex: 1;
-
-            li {
-                font-size: $font-size-sm;
-            }
-        }
-
-        &__links {
-            flex: 1;
-        }
+      h2 {
+        font-size: $font-size-lg;
+      }
     }
+
+    &__container {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: $spacing-xl;
+      max-width: 95%;
+    }
+
+    &__about {
+      flex: 1;
+
+      p {
+        font-size: $font-size-sm;
+      }
+    }
+
+    &__contact {
+      flex: 1;
+
+      li {
+        font-size: $font-size-sm;
+      }
+    }
+
+    &__links {
+      flex: 1;
+    }
+  }
 }
 
 @include desktop {
-    .footer {
-        padding-top: $spacing-xl;
+  .footer {
+    padding-top: $spacing-xl;
 
-        &__banner {
-
-            h2 {
-                font-size: $font-size-xl;
-            }
-        }
-
-        &__container {
-            gap: $spacing-xl * 2;
-            flex-direction: row;
-        }
-
-        &__bottom {
-            font-size: $font-size-md;
-        }
-
-        &__links {
-            flex: 1;
-        }
-
-        &__contact {
-            flex: 1;
-        }
-
-        &__about {
-            flex: 1;
-
-            .footer__logo {
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-            }
-        }
+    &__banner {
+      h2 {
+        font-size: $font-size-xl;
+      }
     }
+
+    &__container {
+      gap: $spacing-xl * 2;
+      flex-direction: row;
+    }
+
+    &__bottom {
+      font-size: $font-size-md;
+    }
+
+    &__links {
+      flex: 1;
+    }
+
+    &__contact {
+      flex: 1;
+    }
+
+    &__about {
+      flex: 1;
+
+      .footer__logo {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
 }

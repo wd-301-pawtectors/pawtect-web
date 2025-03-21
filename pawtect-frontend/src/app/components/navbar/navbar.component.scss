@@ -1,13 +1,13 @@
 // Colors
-$primary-color: #C3E3FF;
-$accent-color: #FFDFC3;
+$primary-color: #c3e3ff;
+$accent-color: #ffdfc3;
 $dark-text: #1a1a1a;
 $light-text: #ffffff;
 $menu-bg: rgba(195, 227, 255, 0.95);
 
 // Fonts
-$primary-font: 'Poppins', sans-serif;
-$secondary-font: 'Figtree', sans-serif;
+$primary-font: "Poppins", sans-serif;
+$secondary-font: "Figtree", sans-serif;
 
 // Font Sizes
 $font-size-sm: 0.9rem;
@@ -27,238 +27,238 @@ $tablet: 1023px;
 $desktop: 1024px;
 
 // Transitions
-$transition: .5s ease-in-out;
+$transition: 0.5s ease-in-out;
 
 // Responsive Mixins
 @mixin mobile {
-    @media (max-width: #{$mobile}) {
-        @content;
-    }
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
 }
 
 @mixin tablet {
-    @media (min-width: 768px) and (max-width: #{$tablet}) {
-        @content;
-    }
+  @media (min-width: 768px) and (max-width: #{$tablet}) {
+    @content;
+  }
 }
 
 @mixin desktop {
-    @media (min-width: #{$desktop}) {
-        @content;
-    }
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
 }
 
 .navbar {
-    position: relative;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: $primary-color;
+  padding: $spacing-sm $spacing-md;
+  z-index: 100;
+  transition: $transition;
+  box-sizing: border-box;
+  font-family: $secondary-font;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 75rem;
+    margin: 0 auto;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    flex: 0 1 auto;
+
+    img {
+      max-width: 4rem;
+      height: auto;
+    }
+  }
+
+  &__toggle {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: block;
+    color: $dark-text;
+    transition: opacity $transition;
+    flex: 0 1 auto;
+
+    &--hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  &__menu {
+    position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
-    background: $primary-color;
-    padding: $spacing-sm $spacing-md;
-    z-index: 100;
-    transition: $transition;
-    box-sizing: border-box;
-    font-family: $secondary-font;
+    right: -100%;
+    width: 75%;
+    max-width: 13.75rem;
+    height: 100%;
+    background: $menu-bg;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
+    transition: right $transition;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
 
-    &__container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 75rem;
-        margin: 0 auto;
+    &--active {
+      right: 0;
+    }
+  }
+
+  &__close {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+
+    li {
+      margin-bottom: 1rem;
     }
 
-    &__logo {
-        display: flex;
-        align-items: center;
-        flex: 0 1 auto;
+    a {
+      text-decoration: none;
+      font-size: $font-size-md;
+      font-weight: bold;
+      color: $dark-text;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: $transition;
+      font-family: $primary-font;
 
-        img {
-            max-width: 4rem;
-            height: auto;
-        }
+      &:hover {
+        text-decoration: underline $dark-text solid 1px;
+      }
+
+      i {
+        margin-left: 0.5rem;
+      }
     }
+  }
+
+  @include tablet {
+    padding: 1.2rem 2rem;
 
     &__toggle {
-        background: none;
-        border: none;
-        font-size: 1.8rem;
-        cursor: pointer;
-        display: block;
-        color: $dark-text;
-        transition: opacity $transition;
-        flex: 0 1 auto;
-
-        &--hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
+      display: block;
     }
 
     &__menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 75%;
-        max-width: 13.75rem;
-        height: 100%;
-        background: $menu-bg;
-        box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
-        transition: right $transition;
-        display: flex;
-        flex-direction: column;
-        padding: 2rem;
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 50%;
+      max-width: 13.75rem;
+      height: 100%;
+      background: $menu-bg;
+      box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
+      transition: right $transition;
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
 
-        &--active {
-            right: 0;
-        }
-    }
-
-    &__close {
-        align-self: flex-end;
-        background: none;
-        border: none;
-        font-size: 2rem;
-        cursor: pointer;
+      &--active {
+        right: 0;
+      }
     }
 
     &__list {
-        list-style: none;
-        padding: 0;
-        margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 0;
+      margin-top: 1.5em;
 
-        li {
-            margin-bottom: 1rem;
-        }
+      li {
+        margin: 0;
+      }
 
-        a {
-            text-decoration: none;
-            font-size: $font-size-md;
-            font-weight: bold;
-            color: $dark-text;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: $transition;
-            font-family: $primary-font;
-
-            &:hover {
-                text-decoration: underline $dark-text solid 1px;
-            }
-
-            i {
-                margin-left: 0.5rem;
-            }
-        }
+      a {
+        font-size: $font-size-lg;
+      }
     }
 
-    @include tablet {
-        padding: 1.2rem 2rem;
+    &__close {
+      display: block;
+    }
+  }
 
-        &__toggle {
-            display: block;
-        }
+  @include desktop {
+    padding: $spacing-lg $spacing-xl;
 
-        &__menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 50%;
-            max-width: 13.75rem;
-            height: 100%;
-            background: $menu-bg;
-            box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
-            transition: right $transition;
-            display: flex;
-            flex-direction: column;
-            padding: 2rem;
-
-            &--active {
-                right: 0;
-            }
-        }
-
-        &__list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin: 0;
-            margin-top: 1.5em;
-
-            li {
-                margin: 0;
-            }
-
-            a {
-                font-size: $font-size-lg;
-            }
-        }
-
-        &__close {
-            display: block;
-        }
+    &__container {
+      max-width: 90rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    @include desktop {
-        padding: $spacing-lg $spacing-xl;
+    &__logo {
+      flex: 0 1 auto;
 
-        &__container {
-            max-width: 90rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        &__logo {
-            flex: 0 1 auto;
-
-            img {
-                max-width: 6rem;
-            }
-        }
-
-        &__toggle {
-            display: none;
-        }
-
-        &__menu {
-            position: static;
-            width: auto;
-            height: auto;
-            background: transparent;
-            box-shadow: none;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            padding: 0;
-            flex: 1;
-        }
-
-        &__list {
-            display: flex;
-            gap: 3rem;
-            margin: 0;
-            width: 100%;
-            justify-content: flex-end;
-
-            li {
-                margin: 0;
-                flex: 1;
-            }
-
-            a {
-                font-size: $font-size-md;
-                white-space: nowrap;
-                flex: 1;
-
-                i {
-                    display: none;
-                }
-            }
-        }
-
-        &__close {
-            display: none;
-        }
+      img {
+        max-width: 6rem;
+      }
     }
+
+    &__toggle {
+      display: none;
+    }
+
+    &__menu {
+      position: static;
+      width: auto;
+      height: auto;
+      background: transparent;
+      box-shadow: none;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0;
+      flex: 1;
+    }
+
+    &__list {
+      display: flex;
+      gap: 3rem;
+      margin: 0;
+      width: 100%;
+      justify-content: flex-end;
+
+      li {
+        margin: 0;
+        flex: 1;
+      }
+
+      a {
+        font-size: $font-size-md;
+        white-space: nowrap;
+        flex: 1;
+
+        i {
+          display: none;
+        }
+      }
+    }
+
+    &__close {
+      display: none;
+    }
+  }
 }

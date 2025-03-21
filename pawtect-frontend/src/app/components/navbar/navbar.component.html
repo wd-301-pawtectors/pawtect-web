@@ -1,26 +1,44 @@
 <header class="navbar">
-    <div class="navbar__container">
-        <!-- LOGO -->
-        <a routerLink="/" class="navbar__logo">
-            <img src="assets/images/pawtect-logo.svg" alt="Logo of Pawtect">
-        </a>
+  <div class="navbar__container">
+    <!-- LOGO -->
+    <a routerLink="/" class="navbar__logo">
+      <img src="assets/images/pawtect-logo.svg" alt="Logo of Pawtect" />
+    </a>
 
-        <!-- MOBILE MENU TOGGLE / HAMBURGER -->
-        <button class="navbar__toggle" [class.navbar__toggle--hidden]="menuOpen" (click)="toggleMenu()">
-            <i class="fas fa-bars"></i>
-        </button>
+    <!-- MOBILE MENU TOGGLE / HAMBURGER -->
+    <button
+      class="navbar__toggle"
+      [class.navbar__toggle--hidden]="menuOpen"
+      (click)="toggleMenu()"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
 
-        <!-- NAVIGATION MENU -->
-        <nav class="navbar__menu" [class.navbar__menu--active]="menuOpen">
-            <button class="navbar__close" (click)="toggleMenu()">x</button>
-            <ul class="navbar__list">
-                <li><a routerLink="/" (click)="toggleMenu()">Home <i class="fas fa-angle-right"></i></a></li>
-                <li><a routerLink="/about" (click)="toggleMenu()">About Us <i class="fas fa-angle-right"></i></a></li>
-                <li><a routerLink="/our-pack" (click)="toggleMenu()">Our Pack <i class="fas fa-angle-right"></i></a>
-                </li>
-                <li><a routerLink="/pawtector" (click)="toggleMenu()">Be A Pawtector <i
-                            class="fas fa-angle-right"></i></a></li>
-            </ul>
-        </nav>
-    </div>
+    <!-- NAVIGATION MENU -->
+    <nav class="navbar__menu" [class.navbar__menu--active]="menuOpen">
+      <button class="navbar__close" (click)="toggleMenu()">x</button>
+      <ul class="navbar__list">
+        <li>
+          <a routerLink="/" (click)="toggleMenu()"
+            >Home <i class="fas fa-angle-right"></i
+          ></a>
+        </li>
+        <li>
+          <a routerLink="/about" (click)="toggleMenu()"
+            >About Us <i class="fas fa-angle-right"></i
+          ></a>
+        </li>
+        <li>
+          <a routerLink="/our-pack" (click)="toggleMenu()"
+            >Our Pack <i class="fas fa-angle-right"></i
+          ></a>
+        </li>
+        <li>
+          <a routerLink="/pawtector" (click)="toggleMenu()"
+            >Be A Pawtector <i class="fas fa-angle-right"></i
+          ></a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>
