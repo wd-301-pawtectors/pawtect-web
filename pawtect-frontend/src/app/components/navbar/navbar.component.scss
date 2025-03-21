@@ -74,7 +74,7 @@ $transition: 0.5s ease-in-out;
     flex: 0 1 auto;
 
     img {
-      max-width: 4rem;
+      max-width: 3rem;
       height: auto;
     }
   }
@@ -153,7 +153,9 @@ $transition: 0.5s ease-in-out;
   }
 
   @include tablet {
-    padding: 1.2rem 2rem;
+    &__container {
+      padding: $spacing-sm $spacing-md;
+    }
 
     &__toggle {
       display: block;
@@ -194,26 +196,32 @@ $transition: 0.5s ease-in-out;
       }
     }
 
+    &__logo {
+      img {
+        max-width: 3.5rem;
+        height: auto;
+      }
+    }
+
     &__close {
       display: block;
     }
   }
 
   @include desktop {
-    padding: $spacing-lg $spacing-xl;
-
     &__container {
       max-width: 90rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: $spacing-sm $spacing-md;
     }
 
     &__logo {
       flex: 0 1 auto;
 
       img {
-        max-width: 6rem;
+        max-width: 4rem;
       }
     }
 
