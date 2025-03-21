@@ -1,5 +1,5 @@
-const dotenv = require('dotenv');
-const app = require('./app');
+const dotenv = require("dotenv");
+const app = require("./app");
 
 dotenv.config();
 
@@ -14,6 +14,6 @@ const PORT = process.env.PORT || 3000;
 on a specific port. When a request is received on that port, the server will execute the callback
 function provided. */
 app.listen(PORT, () => {
-    console.log(`Server is Running on Port ${PORT}`);
-    console.log(`Visit http://localhost:${PORT}`);
+  console.log(`Server is Running on Port ${PORT}`);
+  console.log(`Visit http://localhost:${PORT}`);
 });
