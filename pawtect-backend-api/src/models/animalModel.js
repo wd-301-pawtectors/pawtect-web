@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 
+/* This code snippet is defining a Mongoose schema for an animal entity. Each field in the schema
+represents a property of an animal such as name, type, breed, gender, age, size, weight,
+description, and imageURL. */
 const animalSchema = new mongoose.Schema({
     name: {
         type: String,
