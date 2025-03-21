@@ -189,6 +189,13 @@ $desktop: 1024px;
     .footer {
         padding-top: $spacing-xl;
 
+        &__banner {
+
+            h2 {
+                font-size: $font-size-xl;
+            }
+        }
+
         &__container {
             gap: $spacing-xl * 2;
             flex-direction: row;
