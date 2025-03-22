@@ -1,113 +1,116 @@
-    <!-- HEADER -->
-    <div class="header">
-        <h1 class="header__title">Our Pack - Find Your New Best Friend!</h1>
-        <p class="header__subtitle">Meet the dogs and cats looking for a loving home.</p>
-        <button class="header__btn" (click)="scrollToAnimals()">View All Animals</button>
-    </div>
+<!-- HEADER -->
+<div class="header">
+    <h1 class="header__title">Our Pack - Find Your New Best Friend!</h1>
+    <p class="header__subtitle">Meet the dogs and cats looking for a loving home.</p>
+    <button class="header__btn" (click)="scrollToAnimals()">View All Animals</button>
+</div>
 
-    <!-- SEARCH -->
-    <div class="search">
-        <form class="search__form">
-            <input type="text" [(ngModel)]="searchQuery" [ngModelOptions]="{standalone: true}" placeholder="Search by name or breed">
-            <div class="search__icons">
+<!-- SEARCH -->
+<div class="search">
+    <form class="search__form">
+        <input type="text" [(ngModel)]="searchQuery" [ngModelOptions]="{standalone: true}"
+            placeholder="Search by name or breed" (ngModelChange)="applySearch()" (keydown.enter)="applySearch()">
+        <div class="search__icons">
             <button type="button" (click)="applySearch()"><i class="fas fa-search"></i></button>
             <button type="button" (click)="openSearchModal()">
-                <i class="fas fa-sliders-h"></i> <!-- Opens Search Modal -->
+                <i class="fas fa-sliders-h"></i> <!-- OPENS SEARCH MODAL -->
             </button>
         </div>
-        </form>
-    </div>
+    </form>
+    <button *ngIf="searchQuery || selectedType || selectedAgeGroup || selectedSize || selectedGender" class="clear-btn"
+        (click)="clearSearchAndFilters()">Clear</button>
+</div>
 
-    <!-- SEARCH MODAL -->
-    <div class="search-modal" [class.show]="isSearchModalOpen">
-        <div class="search-modal__search-content">
-            <span class="close-search" (click)="closeSearchModal()">&times;</span>
-            <h2 class="search-content_filter">Filter the PAWsibilities</h2>
+<!-- SEARCH MODAL -->
+<div class="search-modal" [class.show]="isSearchModalOpen">
+    <div class="search-modal__search-content">
+        <span class="close-search" (click)="closeSearchModal()">&times;</span>
+        <h2 class="search-content_filter">Filter the PAWsibilities</h2>
 
-            <div class="search-content__form">
+        <div class="search-content__form">
 
-                <!-- Filter by Type -->
-                <select [(ngModel)]="selectedType">
-                    <option value="">All Types</option>
-                    <option value="dog">Dog</option>
-                    <option value="cat">Cat</option>
-                </select>
+            <!-- FILTER BY TYPE -->
+            <select [(ngModel)]="selectedType">
+                <option value="">All Types</option>
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+            </select>
 
-                <!-- Filter by Age Group -->
-                <select [(ngModel)]="selectedAgeGroup">
-                    <option value="">All Ages</option>
-                    <option value="0-3">0-3 years</option>
-                    <option value="4-6">4-6 years</option>
-                    <option value="7+">7+ years</option>
-                </select>
+            <!-- FILTER BY AGE GROUP -->
+            <select [(ngModel)]="selectedAgeGroup">
+                <option value="">All Ages</option>
+                <option value="0-3">0-3 years</option>
+                <option value="4-6">4-6 years</option>
+                <option value="7+">7+ years</option>
+            </select>
 
-                <!-- Filter by Size -->
-                <select [(ngModel)]="selectedSize">
-                    <option value="">All Sizes</option>
-                    <option value="small">Small</option>
-                    <option value="medium">Medium</option>
-                    <option value="large">Large</option>
-                </select>
+            <!-- FILTER BY SIZE -->
+            <select [(ngModel)]="selectedSize">
+                <option value="">All Sizes</option>
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
 
-                <!-- Filter by Gender -->
-                <select [(ngModel)]="selectedGender">
-                    <option value="">All Genders</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                </select>
+            <!-- FILTER BY GENDER -->
+            <select [(ngModel)]="selectedGender">
+                <option value="">All Genders</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
 
-                <!-- Apply Filters Button -->
-                <button class="search_btn" (click)="applyFilters()">Apply Filters</button>
-            </div>
+            <!-- APPLY FILTERS BUTTON -->
+            <button class="search_btn" (click)="applyFilters()">Apply Filters</button>
         </div>
     </div>
+</div>
 
-    <!-- CARDS -->
-    <div id="animals-section" class="cards-container">
-        <div *ngFor="let animal of filteredAnimals" class="cards-container__card">
-            <img [src]="animal.image" alt="{{ animal.name }}" (click)="openModal(animal)" />
-            <div class="card-footer">
-                <p><strong>Name:</strong> {{ animal.name }}</p>
-                <p><strong>Age:</strong> {{ animal.age }} years old</p>
-                <p><strong>Breed:</strong> {{ animal.breed }}</p>
-            </div>
+<!-- CARDS -->
+<div id="animals-section" class="cards-container">
+    <div *ngFor="let animal of filteredAnimals" class="cards-container__card">
+        <img [src]="'assets/images/our-pack/' + animal.imageURL" alt="{{ animal.name }}" (click)="openModal(animal)" />
+        <div class="card-footer">
+            <p><strong>Name:</strong> {{ animal.name }}</p>
+            <p><strong>Age:</strong> {{ animal.age }} years old</p>
+            <p><strong>Breed:</strong> {{ animal.breed }}</p>
         </div>
     </div>
+</div>
 
-    <!-- PAGINATION -->
-    <div class="pagination">
-        <button (click)="prevPage()" [disabled]="currentPage === 1">Prev</button>
-        <span>Page {{ currentPage }} of {{ totalPages }}</span>
-        <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
-    </div>
+<!-- PAGINATION -->
+<div class="pagination">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">Prev</button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+</div>
 
-    <!-- MODAL -->
-    <div class="modal" [class.show]="isModalOpen">
-        <div class="modal__modal-content">
-            <div class="modal__content-image">
-                <img [src]="selectedAnimal?.image" alt="{{ selectedAnimal?.name }}">
-            </div>
-            <div class="modal__content-info">
-                <span class="close" (click)="closeModal()">&times;</span>
-                <p class="modal__info">Name: <strong>{{ selectedAnimal?.name }}</strong></p>
-                <p class="modal__info">Age: <strong>{{ selectedAnimal?.age }}</strong></p>
-                <p class="modal__info">Breed: <strong>{{ selectedAnimal?.breed }}</strong></p>
-                <p class="modal__info">Gender: <strong>{{ selectedAnimal?.gender }}</strong></p>
-                <p class="modal__info">Weight: <strong>{{ selectedAnimal?.weight }}</strong></p>
-                <p class="modal__info">Size:<strong>{{ selectedAnimal?.size }}</strong></p>
-                <p class="modal__desc"><strong>Description:</strong><br> {{ selectedAnimal?.description }}</p>
-                <button class="modal__btn" routerLink="/pawtector">Be My Human</button>
-            </div>
+<!-- MODAL -->
+<div class="modal" [class.show]="isModalOpen">
+    <div class="modal__modal-content">
+        <div class="modal__content-image">
+            <img [src]="'assets/images/our-pack/' + selectedAnimal?.imageURL" alt="{{ selectedAnimal?.name }}">
+        </div>
+        <div class="modal__content-info">
+            <span class="close" (click)="closeModal()">&times;</span>
+            <p class="modal__info">Name: <strong>{{ selectedAnimal?.name }}</strong></p>
+            <p class="modal__info">Age: <strong>{{ selectedAnimal?.age }}</strong></p>
+            <p class="modal__info">Breed: <strong>{{ selectedAnimal?.breed }}</strong></p>
+            <p class="modal__info">Gender: <strong>{{ selectedAnimal?.gender }}</strong></p>
+            <p class="modal__info">Weight: <strong>{{ selectedAnimal?.weight }}</strong></p>
+            <p class="modal__info">Size:<strong>{{ selectedAnimal?.size }}</strong></p>
+            <p class="modal__desc"><strong>Description:</strong><br> {{ selectedAnimal?.description }}</p>
+            <button class="modal__btn" routerLink="/pawtector">Be My Human</button>
         </div>
     </div>
+</div>
 
-    <!-- CTA -->
-    <div class="pet-match">
-        <section class="pet-match__container">
-            <h2 class="pet-match__container__title">Looking for a Specific Pet?</h2>
-            <p class="pet-match__container__description">
-                Can't find the pet you're looking for? Let us know, and we'll help you find the perfect match!
-            </p>
-            <button class="pet-match__button" routerLink="/pawtector">Get in Touch</button>
-        </section>
-    </div>
+<!-- CTA -->
+<div class="pet-match">
+    <section class="pet-match__container">
+        <h2 class="pet-match__container__title">Looking for a Specific Pet?</h2>
+        <p class="pet-match__container__description">
+            Can't find the pet you're looking for? Let us know, and we'll help you find the perfect match!
+        </p>
+        <button class="pet-match__button" routerLink="/pawtector">Get in Touch</button>
+    </section>
+</div>

@@ -2,75 +2,87 @@ const request = require('supertest');
 const app = require('../src/app');
 const mongoose = require('mongoose');
 
+// CONNECT TO THE DATABASE BEFORE ALL TESTS
 beforeAll(async () => {
   const dbURI = process.env.MONGODB_URI;
   await mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
 });
 
+// CLOSE THE DATABASE CONNECTION AFTER ALL TESTS
 afterAll(async () => {
   await mongoose.connection.close();
 });
 
-describe('Animals API', () => {
-  it('should get all animals', async () => {
+describe('ANIMALS API', () => {
+  // TEST TO GET ALL ANIMALS
+  it('SHOULD GET ALL ANIMALS', async () => {
     const res = await request(app).get('/api/animals');
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveLength(24);
   });
 
-  it('should search animals by name', async () => {
-    const res = await request(app).get('/api/animals/search?query=Buddy');
+  // TEST TO SEARCH ANIMALS BY NAME
+  it('SHOULD SEARCH ANIMALS BY NAME', async () => {
+    const res = await request(app).get('/api/animals/search-filter?query=Buddy');
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveLength(1);
     expect(res.body[0].name).toBe('Buddy');
   });
 
-  it('should search animals by breed', async () => {
-    const res = await request(app).get('/api/animals/search?query=Golden Retriever');
+  // TEST TO SEARCH ANIMALS BY BREED
+  it('SHOULD SEARCH ANIMALS BY BREED', async () => {
+    const res = await request(app).get('/api/animals/search-filter?query=Golden Retriever');
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveLength(1);
     expect(res.body[0].breed).toBe('Golden Retriever');
   });
 
-  it('should search animals by multi-word breed', async () => {
-    const res = await request(app).get('/api/animals/search?query=Domestic Shorthair');
+  // TEST TO SEARCH ANIMALS BY MULTI-WORD BREED
+  it('SHOULD SEARCH ANIMALS BY MULTI-WORD BREED', async () => {
+    const res = await request(app).get('/api/animals/search-filter?query=Domestic Shorthair');
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveLength(2);
     expect(res.body[0].breed).toBe('Domestic Shorthair');
   });
 
-  it('should filter animals by type', async () => {
-    const res = await request(app).get('/api/animals/filter?type=Cat');
+  // TEST TO FILTER ANIMALS BY TYPE
+  it('SHOULD FILTER ANIMALS BY TYPE', async () => {
+    const res = await request(app).get('/api/animals/search-filter?type=Cat');
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveLength(12);
     expect(res.body[0].type).toBe('Cat');
   });
 
-  it('should filter animals by age', async () => {
-    const res = await request(app).get('/api/animals/filter?age=0-3');
+  // TEST TO FILTER ANIMALS BY AGE
+  it('SHOULD FILTER ANIMALS BY AGE', async () => {
+    const res = await request(app).get('/api/animals/search-filter?age=0-3');
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveLength(17);
   });
 
-  it('should filter animals by size', async () => {
-    const res = await request(app).get('/api/animals/filter?size=Medium');
+  // TEST TO FILTER ANIMALS BY SIZE
+  it('SHOULD FILTER ANIMALS BY SIZE', async () => {
+    const res = await request(app).get('/api/animals/search-filter?size=Medium');
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveLength(10);
   });
 
-  it('should filter animals by gender', async () => {
-    const res = await request(app).get('/api/animals/filter?gender=Male');
+  // TEST TO FILTER ANIMALS BY GENDER
+  it('SHOULD FILTER ANIMALS BY GENDER', async () => {
+    const res = await request(app).get('/api/animals/search-filter?gender=Male');
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveLength(14);
   });
 
-  it('should get a specific animal by ID (Buddy)', async () => {
+  // TEST TO GET A SPECIFIC ANIMAL BY ID (BUDDY)
+  it('SHOULD GET A SPECIFIC ANIMAL BY ID (BUDDY)', async () => {
     const res = await request(app).get('/api/animals/67dd1b0267639e6ed5b57d1c');
     expect(res.statusCode).toEqual(200);
     expect(res.body.name).toBe('Buddy');
   });
 
-  it('should get a specific animal by ID (Whiskers)', async () => {
+  // TEST TO GET A SPECIFIC ANIMAL BY ID (WHISKERS)
+  it('SHOULD GET A SPECIFIC ANIMAL BY ID (WHISKERS)', async () => {
     const res = await request(app).get('/api/animals/67dd1ee12820f7cbc5d748b4');
     expect(res.statusCode).toEqual(200);
     expect(res.body.name).toBe('Whiskers');
