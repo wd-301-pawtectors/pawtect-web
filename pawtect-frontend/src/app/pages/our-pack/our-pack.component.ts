@@ -95,7 +95,7 @@ export class OurPackComponent implements OnInit {
 
   // APPLY SEARCH
   applySearch(): void {
-    this.http.get<any[]>(`${this.apiUrl}/search?query=${this.searchQuery}`).subscribe(
+    this.http.get<any[]>(`${this.apiUrl}/search-filter?query=${this.searchQuery}`).subscribe(
       (data) => {
         this.animals = data;
         this.currentPage = 1;
@@ -119,7 +119,7 @@ export class OurPackComponent implements OnInit {
 
     const queryString = filterParams.length ? `?${filterParams.join('&')}` : '';
 
-    this.http.get<any[]>(`${this.apiUrl}/filter${queryString}`).subscribe(
+    this.http.get<any[]>(`${this.apiUrl}/search-filter${queryString}`).subscribe(
       (data) => {
         let filtered = data;
         if (this.selectedAgeGroup) {
