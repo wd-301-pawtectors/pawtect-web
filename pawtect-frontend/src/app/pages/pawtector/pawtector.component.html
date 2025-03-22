@@ -1,1 +1,373 @@
-<p>pawtector works!</p>
+<!-- PAWTECTOR BANNER -->
+<div class="pawtector-banner">
+  <div class="pawtector-content">
+    <h1>Be A Pawtector – Make a Difference Today!</h1>
+    <p>Help us rescue, care for, and rehome stray animals in Angeles City.</p>
+    <div class="pawtector-buttons">
+      <button class="btn" (click)="scrollToVolunteer()">Sign Up to Volunteer</button>
+      <button class="btn" (click)="scrollToReport()">Report Animal  </button>
+    </div>
+  </div>
+</div>
+
+<!-- INFO SECTION -->
+<div class="info-section">
+  <h2>Why Become a Pawtector?</h2>
+  <p>There are many ways to make a difference. Choose how you want to help!</p>
+
+  <div class="card">
+    <div class="card-item">
+      <h3>Volunteer</h3>
+      <p>Get involved in rescue missions, outreach programs, and community events. Your time and dedication can make a direct difference in the lives of rescued animals.</p>
+    </div>
+    <div class="card-item">
+      <h3>Foster</h3>
+      <p>Open your home to an animal in need, providing temporary shelter, love, and care until they find their forever family. Fostering helps reduce overcrowding in shelters and gives animals a second chance.</p>
+    </div>
+    <div class="card-item">
+      <h3>Donate</h3>
+      <p>Your generosity supports medical treatment, food, shelter, and other essential care for rescued animals. Every contribution, big or small, helps us continue our mission.</p>
+    </div>
+    <div class="card-item">
+      <h3>Report Abuse</h3>
+      <p>Be a voice for the voiceless. If you see an animal in distress, neglected, or abused, report it. Your action could save a life and bring justice to those who cannot defend themselves.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SEPARATOR -->
+<div class="separator">
+  <span class="paw">🐾</span> <span class="paw">🐾</span> <span class="paw">🐾</span>
+  <span class="paw">🐾</span> <span class="paw">🐾</span> <span class="paw">🐾</span>
+  <span class="paw">🐾</span> <span class="paw">🐾</span>
+</div>
+
+<!-- PAWTECTOR FORMS -->
+<div class="pawtector-forms">
+  <!-- Volunteer Form -->
+  <section class="volunteer-form" id="volunteer-form-id">
+    <form [formGroup]="volunteer_form_data" (ngSubmit)="OnClickVolunteer(volunteer_form_data.value)">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Volunteer Sign-Up Form</mat-card-title>
+        </mat-card-header>
+
+        <section class="volunteer-form__combined">
+          <section class="volunteer-form__name">
+            <mat-form-field appearance="outline">
+              <mat-label>Name:</mat-label>
+              <input matInput placeholder="eg. John Doe" formControlName="volunteer_name" required />
+              <mat-error *ngIf="volunteer_form_data.get('volunteer_name')?.hasError('required')">
+                Name is required.
+              </mat-error>
+            </mat-form-field>
+          </section>
+
+          <section class="volunteer-form__empho">
+            <mat-form-field appearance="outline">
+              <mat-label>Email/Phone:</mat-label>
+              <input
+                matInput
+                placeholder="eg. jdoe123@gmail.com / +639123456789"
+                formControlName="volunteer_email_phone"
+                required
+              />
+              <mat-error *ngIf="volunteer_form_data.get('volunteer_email_phone')?.hasError('required')">
+                This field is required.
+              </mat-error>
+              <mat-error *ngIf="volunteer_form_data.get('volunteer_email_phone')?.hasError('pattern')">
+                Please enter a valid email or phone number.
+              </mat-error>
+            </mat-form-field>
+          </section>
+        </section>
+
+        <section class="volunteer-form__roles">
+          <section class="volunteer-form__combined-role">
+            <section class="volunteer-form__prefrole">
+              <span>Volunteer Roles:</span>
+              <mat-form-field appearance="outline">
+                <mat-label>Roles</mat-label>
+                <mat-select
+                  formControlName="volunteer_role"
+                  (selectionChange)="onRoleSelected($event.value)"required>
+                  <mat-option *ngFor="let role of roles" [value]="role.value">
+                    {{ role.value }}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="volunteer_form_data.get('volunteer_role')?.hasError('required')">
+                  Please select a role.
+                </mat-error>
+              </mat-form-field>
+
+              <section class="volunteer-form__other" *ngIf="volunteer_otherRoleSelected">
+                <span>Other:</span>
+                <mat-form-field appearance="outline">
+                  <input matInput placeholder="Please specify" formControlName="volunteer_other" />
+                  <mat-error *ngIf="volunteer_form_data.get('volunteer_other')?.hasError('required')">
+                    Please specify your role.
+                  </mat-error>
+                </mat-form-field>
+              </section>
+            </section>
+
+            <section class="volunteer-form__avail">
+              <span>Availability:</span>
+              <mat-form-field appearance="outline">
+                <mat-label>Days</mat-label>
+                <mat-select
+                  formControlName="selectedDay"
+                  (selectionChange)="onDaySelected($event.value)"
+                  required
+                >
+                  <mat-option *ngFor="let day of days" [value]="day.value">
+                    {{ day.value }}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="volunteer_form_data.get('selectedDay')?.hasError('required')">
+                  Please select a day.
+                </mat-error>
+              </mat-form-field>
+            </section>
+          </section>
+
+          <section class="volunteer-form__time">
+            <span *ngIf="selectedDay">Time:</span>
+            <section *ngIf="selectedDay" class="volunteer-form__volunteer-time">
+              <mat-form-field appearance="outline" class="volunteer-form__time-field">
+                <mat-label>Start</mat-label>
+                <input
+                  matInput
+                  [matTimepicker]="startPicker"
+                  formControlName="startTime"
+                  matTimepickerMin="07:00"
+                  matTimepickerMax="20:00"
+                  required
+                />
+                <mat-timepicker-toggle matIconSuffix [for]="startPicker"></mat-timepicker-toggle>
+                <mat-timepicker #startPicker></mat-timepicker>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="volunteer-form__time-field">
+                <mat-label>End</mat-label>
+                <input
+                  matInput
+                  [matTimepicker]="endPicker"
+                  formControlName="endTime"
+                  matTimepickerMin="07:00"
+                  matTimepickerMax="20:00"
+                  required
+                />
+                <mat-timepicker-toggle matIconSuffix [for]="endPicker"></mat-timepicker-toggle>
+                <mat-timepicker #endPicker></mat-timepicker>
+              </mat-form-field>
+            </section>
+
+            <mat-error
+              *ngIf="
+                volunteer_form_data.get('startTime')?.hasError('invalidTimeRange') ||
+                volunteer_form_data.get('endTime')?.hasError('invalidTimeRange')
+              "
+              class="error-message"
+            >
+              Start time must be earlier than End time.
+            </mat-error>
+
+            <button
+              *ngIf="selectedDay"
+              mat-raised-button
+              color="primary"
+              (click)="addAvailability()"
+              [disabled]="
+                !selectedDay ||
+                !volunteer_form_data.get('startTime')?.value ||
+                !volunteer_form_data.get('endTime')?.value
+              "
+            >
+              Add Day
+            </button>
+
+            <section class="volunteer-form__display" *ngIf="availabilities.length > 0">
+              <span>Added Availabilities:</span>
+              <mat-card *ngFor="let availability of availabilities; let i = index">
+                <p>
+                  <strong>{{ availability.day }}</strong> -
+                  {{ availability.startTime | date: 'hh:mm a' }} -
+                  {{ availability.endTime | date: 'hh:mm a' }}
+                </p>
+                <button mat-icon-button color="warn" (click)="removeAvailability(i)">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </mat-card>
+            </section>
+          </section>
+        </section>
+
+        <section class="volunteer-form__message">
+          <mat-form-field appearance="outline">
+            <mat-label color="accent">Message:</mat-label>
+            <textarea matInput placeholder="Ex. It makes me feel..." formControlName="volunteer_message"></textarea>
+          </mat-form-field>
+        </section>
+
+        <section class="volunteer-form__button">
+          <button mat-raised-button color="primary" type="submit" [disabled]="!volunteer_form_data.valid">
+            Join The Pack
+          </button>
+        </section>
+      </mat-card>
+    </form>
+  </section>
+
+  <!-- Report Form -->
+  <section class="report-form" id="report-form-id">
+    <form [formGroup]="report_form_data" (ngSubmit)="OnClickReport(report_form_data.value)">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Report an Animal in Need</mat-card-title>
+        </mat-card-header>
+
+        <section class="report-form__combined">
+          <section class="report-form__name">
+            <mat-form-field appearance="outline">
+              <mat-label>Animal's Name (Optional):</mat-label>
+              <input matInput placeholder="ex. John Doe" formControlName="report_name" />
+            </mat-form-field>
+          </section>
+
+          <section class="report-form__location">
+            <mat-form-field appearance="outline">
+              <mat-label>Animal's Location:</mat-label>
+              <input
+                matInput
+                placeholder="Fiesta Communities, Madapdap"
+                formControlName="report_location"
+                required
+              />
+              <mat-error *ngIf="report_form_data.get('report_location')?.hasError('required')">
+                Location is required.
+              </mat-error>
+            </mat-form-field>
+          </section>
+        </section>
+
+        <section class="report-form__description">
+          <mat-form-field appearance="outline">
+            <mat-label>Description:</mat-label>
+            <textarea
+              matInput
+              placeholder="ex. Brown Colored Spots, Askal etc."
+              formControlName="report_description"
+              required
+            ></textarea>
+            <mat-error *ngIf="report_form_data.get('report_description')?.hasError('required')">
+              Description is required.
+            </mat-error>
+          </mat-form-field>
+        </section>
+
+        <section class="report-form__upload">
+          <span>Upload Photo (Optional):</span>
+          <section class="report-form__photo-upload">
+            <label for="report-image" class="report-form__upload-button">
+              <mat-icon>upload</mat-icon> Choose Image
+            </label>
+            <input
+              id="report-image"
+              type="file"
+              formControlName="report_image"
+              accept="image/*"
+              hidden
+              (change)="onFileSelected($event)"
+            />
+            <span class="report-form__file-name">{{ selectedFileName || 'No image chosen' }}</span>
+          </section>
+        </section>
+
+        <section class="report-form__button">
+          <button mat-raised-button color="primary" type="submit" [disabled]="!report_form_data.valid">
+            Report Now
+          </button>
+        </section>
+      </mat-card>
+    </form>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="pawtector-forms_contact-form">
+    <form [formGroup]="contact_form_data" (ngSubmit)="OnClickContact(contact_form_data.value)">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Contact Form</mat-card-title>
+        </mat-card-header>
+
+        <section class="contact-form__combined">
+          <section class="contact-form_name">
+            <mat-form-field appearance="outline">
+              <mat-label>Name:</mat-label>
+              <input matInput placeholder="ex. John Doe" formControlName="contact_name" required />
+              <mat-error *ngIf="contact_form_data.get('contact_name')?.hasError('required')">
+                Name is required.
+              </mat-error>
+            </mat-form-field>
+          </section>
+
+          <section class="contact-form_email">
+            <mat-form-field appearance="outline">
+              <mat-label>Email:</mat-label>
+              <input matInput placeholder="ex.jdoe123@gmail.com" formControlName="contact_email" required />
+              <mat-error *ngIf="contact_form_data.get('contact_email')?.hasError('required')">
+                This field is required.
+              </mat-error>
+              <mat-error *ngIf="contact_form_data.get('contact_email')?.hasError('pattern')">
+                Please enter a valid email.
+              </mat-error>
+            </mat-form-field>
+          </section>
+        </section>
+
+        <section class="contact-form__subject">
+          <mat-form-field appearance="outline">
+            <mat-label>Subject:</mat-label>
+            <mat-select formControlName="contact_subject" required>
+              <mat-option *ngFor="let subject of subjects" [value]="subject.value">
+                {{ subject.value }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="contact_form_data.get('contact_subject')?.hasError('required')">
+              Please select a Subject.
+            </mat-error>
+          </mat-form-field>
+        </section>
+
+        <section class="contact-form_message">
+          <mat-form-field appearance="outline">
+            <mat-label color="accent">Message:</mat-label>
+            <textarea
+              matInput
+              placeholder="Ex. Thank you for ..."
+              formControlName="contact_message"
+              required
+            ></textarea>
+            <mat-error *ngIf="contact_form_data.get('contact_message')?.hasError('required')">
+              Message is required.
+            </mat-error>
+          </mat-form-field>
+        </section>
+
+        <section class="contact-form_button">
+          <button mat-raised-button color="primary" type="submit" [disabled]="!contact_form_data.valid">
+            Send Message
+          </button>
+        </section>
+      </mat-card>
+    </form>
+  </section>
+</div>
+
+<!-- DONATE CTA SECTION -->
+<div class="cta-section">
+  <h2>Help Us Save More Lives</h2>
+  <p>Your support helps us rescue, rehabilitate, and rehome animals, giving them a second chance at life!</p>
+  <button mat-raised-button class="donate-btn">Donate Now</button>
+</div>

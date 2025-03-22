@@ -1,1 +1,153 @@
-<p>home works!</p>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- BANNER -->
+<div class="home">
+    <img [src]="imagePath" alt="Dog Background" class="home__image">
+    <div class="home__overlay"></div>
+    <div class="home__content">
+        <h1 class="home__content-heading">Home – Give Animals a Second Chance!</h1>
+        <p class="home__content-text">Help us rescue, care for, and rehome stray animals in Angeles City.</p>
+        <div class="home__buttons">
+            <button class="home__shared-buttons" routerLink="/our-pack">Meet Our Pack</button>
+            <button class="home__shared-buttons" routerLink="/pawtector">Be a Pawtector</button>
+        </div>
+    </div>
+</div>
+
+<!-- WHO WE ARE -->
+<div class="home__do">
+    <div class="home__card">
+        <div class="home__do-content">
+            <h3 class="home__do-card-heading">Who We Are</h3>
+            <div class="home__do-grid">
+                <!-- TEXT CONTENT -->
+                <div class="home__do-text-container">
+                    <p class="home__do-card-text">
+                        Pawtect is dedicated to protecting and improving the lives of stray, neglected, and rescued animals in Angeles City. Our mission is to bridge the gap between these vulnerable animals and compassionate individuals willing to adopt, support, and advocate for their welfare.
+                    </p>
+                </div>
+                <!-- IMAGE CONTENT  -->
+                <div class="home__do-image-container">
+                    <img [src]="card1" alt="Who We Are" class="home__do-image">
+                </div>
+            </div>
+            <div class="home__main-buttons">
+                <button class="home__shared-buttons" routerLink="/about">Learn more About Us</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MEET OUR PACK -->
+    <div class="home__card">
+        <h3 class="home__do-card-heading">Meet Our Pack</h3>
+
+        <!-- MOBILE CAROUSEL -->
+        <div class="home__card-our-pack-mobile">
+            <div class="home__carousel">
+                <button class="home__carousel-btn prev" (click)="prevSlide()">&#10094;</button>
+                <div class="home__carousel-container">
+                    <div *ngFor="let animal of animals; let i = index" class="home__carousel-slide" [ngClass]="{
+                        'active': i === currentIndex,
+                        'next': i === (currentIndex + 1) % animals.length,
+                        'prev': i === (currentIndex - 1 + animals.length) % animals.length,
+                        'slide-next': direction === 'next' && i === currentIndex,
+                        'slide-prev': direction === 'prev' && i === currentIndex
+                    }">
+                        <img [src]="animal.image" [alt]="animal.name" class="home__carousel-image">
+                        <div class="home__carousel-info">
+                            <p><strong>Name:</strong> {{ animal.name }}</p>
+                            <p><strong>Age:</strong> {{ animal.age }} year/s old</p>
+                            <p><strong>Breed:</strong> {{ animal.breed }}</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="home__carousel-btn next" (click)="nextSlide()">&#10095;</button>
+            </div>
+            <button class="home__shared-buttons" routerLink="/our-pack">See all Animals</button>
+        </div>
+
+        <!-- TABLET GRID -->
+        <div class="home__card-tablet">
+            <div class="home__grid">
+                <div *ngFor="let animal of animals | slice:0:4" class="home__grid-item">
+                    <div class="home__image-container">
+                        <img [src]="animal.image" [alt]="animal.name" class="home__grid-image">
+                    </div>
+                    <div class="home__info-container">
+                        <p class="home__tabdesk-only"><strong>Name:</strong> {{ animal.name }}</p>
+                        <p><strong>Age:</strong> {{ animal.age }} year/s old</p>
+                        <p><strong>Breed:</strong> {{ animal.breed }}</p>
+                    </div>
+                </div>
+            </div>
+            <button class="home__shared-buttons" routerLink="/our-pack">See all Animals</button>
+        </div>
+
+        <!-- DESKTOP GRID -->
+        <div class="home__card-desktop">
+            <div class="home__grid">
+                <div *ngFor="let pet of animalsdesktop | slice:0:8" class="home__grid-item">
+                    <div class="home__image-container">
+                        <img [src]="pet.image" [alt]="pet.name" class="home__grid-image">
+                    </div>
+                    <div class="home__info-container">
+                        <p class="home__tabdesk-only"><strong>Name:</strong> {{ pet.name }}</p>
+                        <p><strong>Age:</strong> {{ pet.age }} year/s old</p>
+                        <p><strong>Breed:</strong> {{ pet.breed }}</p>
+                    </div>
+                </div>
+            </div>
+            <button class="home__shared-buttons" routerLink="/our-pack">See all Animals</button>
+        </div>
+    </div>
+
+<!-- BE A PAWTECTOR -->
+<div class="home__card">
+    <div class="home__do-content">
+        <h3 class="home__do-card-heading">Be a Pawtector</h3>
+        <div class="home__do-grid">
+            <div class="home__do-text-container">
+                <p class="home__do-card-text">
+                    Make a difference in the lives of stray and rescued animals! Join us as a volunteer or support our mission through donations. Every effort counts in giving them a better future.
+                </p>
+            </div>
+            <div class="home__do-image-container">
+                <img [src]="card2" alt="Be a Pawtector" class="home__do-image">
+            </div>
+        </div>
+        <div class="home__main-buttons">
+            <button class="home__shared-buttons" routerLink="/pawtector">Get Involved</button>
+        </div>
+    </div>
+</div>
+
+<!-- HOW YOU CAN HELP -->
+<div class="home__card">
+    <h3 class="home__do-card-heading">How You Can Help</h3>
+    <div class="home__help-options">
+        <div class="home__help-item" *ngFor="let option of helpOptions">
+            <div class="home__help-image-wrapper">
+                <img [src]="option.image" [alt]="option.buttonText" class="home__help-image">
+            </div>
+            <div class="home__help-content">
+                <button class="home__shared-buttons-help" [routerLink]="option.link">
+                    {{ option.buttonText }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- CONTACT US -->
+    <div class="home__contactus">
+        <h3 class="home__do-card-heading">Contact Us!</h3>
+        <div class="home__contactus-icon">
+            <i class="fas fa-envelope"></i>
+            <i class="fas fa-phone"></i>
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-x-twitter"></i>
+        </div>
+        <button class="home__shared-buttons" routerLink="/pawtector">Reach Out</button>
+    </div>
+</div>
