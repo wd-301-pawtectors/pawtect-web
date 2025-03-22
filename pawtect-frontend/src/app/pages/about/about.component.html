@@ -1,1 +1,106 @@
-<p>about works!</p>
+<div class="about">
+    <img [src]="imagePath" alt="Jumbo Background" class="about__image">
+    <div class="about__overlay"></div>
+    <div class="about__content">
+        <h1 class="about__content-heading">About Us - Saving Lives, One Paw at a Time</h1>
+        <p class="about__content-text">Join us in making Angeles City a safer place for animals.</p>
+    </div>
+</div>
+
+<div class="about-main-div">
+<div class = "about__who">
+    <h2 class="about__who-heading">Who We Are</h2>
+    <p class="about__who-text">Pawtect is dedicated to protecting and improving the lives of stray, neglected, and rescued animals in Angeles City. Our mission is to bridge the gap between these vulnerable animals and compassionate individuals willing to adopt, support, and advocate for their welfare. Through a digital platform, we aim to increase adoption rates, provide resources for responsible pet ownership, and foster a strong community of animal advocates. By leveraging technology, education, and community engagement, Pawtect strives to create a future where every animal receives the care, love, and respect it deserves.
+    </p>
+</div>
+
+<div class="about__do">
+    <h2 class="about__do-heading">What We Do</h2>
+    <div class="about__do-card1">
+        <h3 class="about__do-card1-heading">Animal Rescue and Rehabilitation</h3>
+        <img [src]="card1" alt="Jumbo Background" class="about__do-image">
+        <p class="about__do-card1-text">Supporting shelters and providing aid to animals in need.</p>
+    </div>
+
+    <div class="about__do-card2">
+        <h3 class="about__do-card2-heading">Adoption & Rehoming</h3>
+        <img [src]="card2" alt="Jumbo Background" class="about__do-image">
+        <p class="about__do-card2-text">Connecting rescued animals with loving families.</p>
+    </div>
+
+    <div class="about__do-card3">
+        <h3 class="about__do-card3-heading">Community Education & Awareness</h3>
+        <img [src]="card3" alt="Jumbo Background" class="about__do-image">
+        <p class="about__do-card3-text">Promoting responsible pet ownership and advocacy efforts.</p>
+    </div>
+</div>
+
+<h2 class="about__goals-container-header">Our Goals & Advocacy</h2>
+
+<div class="about__goals-container">
+    <div class="about__goals">
+        <div class="about__goals-icon-text">
+            <p class="about__goals-icon"><i class="fas fa-bullseye"></i></p>
+            <h2 class="about__goals-subtext">Mission</h2>
+        </div>
+        <p class="about__goals-text">Our mission is to create a sustainable and inclusive platform that empowers individuals and organizations to improve the lives of animals in need.</p>
+        <hr class="about__goals-line">
+    </div>
+
+    <hr class="about__goals-divider">
+
+    <div class="about__goals">
+        <div class="about__goals-icon-text">
+            <p class="about__goals-icon"><i class="fas fa-eye"></i></p>
+            <h2 class="about__goals-subtext">Vision</h2>
+        </div>
+        <p class="about__goals-text">We envision a future where every stray animal has a loving home and every community is engaged in animal welfare. By leveraging technology and community-driven efforts, we aspire to create a compassionate and well-informed society that prioritizes the protection, care, and rights of animals.</p>
+        <hr class="about__goals-line">
+    </div>
+</div>
+<hr class="about__goals-hr">
+
+<div class="about__goals-proj">
+    <div class="about__goals-proj-icon-text">
+        <p class="about__goals-proj-icon"><i class="fas fa-clock"></i></p>
+        <h2 class="about__goals-proj-subtext">Ongoing Projects</h2>
+    </div>
+    <div class="about__goals-proj-texts">
+        <p class="about__goals-proj-text"><span class="about__goals-bold">Donation & Sponsorship Program</span> – A secure online system for individuals to provide financial or material support for shelters and rescued animals.</p>
+        <p class="about__goals-proj-text"><span class="about__goals-bold">Lost and Found Pet Registry</span> – A secure online system for individuals to provide financial or material </p>
+    </div>
+    <p class="about__goals-proj-awe"><span class="about__goals-bold">Animal Welfare Education Initiative </span> – Blogs, social media campaigns, and interactive workshops to raise awareness on responsible pet ownership.</p>
+    <hr class="about__goals-proj-line">
+</div>
+
+<div class="about__partners">
+    <h2 class="about__goals-subtext">Our Partners</h2>
+    <div class="about__partners-grid">
+        <img [src]="grid1" alt="Partner 1">
+        <img [src]="grid2" alt="Partner 2">
+        <img [src]="grid3" alt="Partner 3">
+        <img [src]="grid4" alt="Partner 4">
+    </div>
+    <hr class="about__goals-line">
+</div>
+<hr class="about__partners-hr">
+
+
+
+<div class="about__cause">
+    <div class="about__cause-text">
+        <h2 class="about__cause-subtext">Join the Cause</h2>
+        <p class="about__cause-text">Be a Pawtector! Volunteer, adopt, or donate today and help us create a better future for animals in need. Every action counts in giving them a second chance at life.</p>
+        <div class="about__cta">
+            <a routerLink="/pawtector" class="about__cta-btn">Volunteer</a>
+            <a routerLink="/pawtector" class="about__cta-btn">Donate</a>
+            <a routerLink="/our-pack" class="about__cta-btn">See Adoptable Pets</a>
+        </div>
+    </div>
+    <div class="about__cause-image">
+        <img [src]="cause" alt="Cause">
+    </div>
+</div>
+</div>
+
+
