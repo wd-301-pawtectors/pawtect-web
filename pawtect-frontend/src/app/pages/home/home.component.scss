@@ -1,0 +1,726 @@
+// Colors
+$primary-color: #c3e3ff;
+$accent-color: #ffdfc3;
+$dark-text: #1a1a1a;
+$light-text: #ffffff;
+$menu-bg: rgba(195, 227, 255, 0.95);
+
+// Fonts
+$primary-font: "Poppins", sans-serif;
+$secondary-font: "Figtree", sans-serif;
+
+// Font Sizes
+$font-size-sm: 0.9rem;
+$font-size-md: 1rem;
+$font-size-lg: 1.2rem;
+$font-size-xl: 1.5rem;
+
+// Spacing
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+
+// Breakpoints
+$mobile: 767px;
+$tablet: 1023px;
+$desktop: 1024px;
+
+// Transitions
+$transition: 0.5s ease-in-out;
+
+// Responsive Mixins
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+//GENERAL STYLE
+.home__card {
+    background-color: $light-text;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    border: 2px solid $dark-text;
+    margin: 0 auto; 
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home__do {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 1.5rem;
+    background-color: $light-text;
+    padding-top: 3rem;
+}
+
+.home__shared-buttons {
+    background-color: $accent-color;
+    color: $dark-text;
+    border: 2px solid $dark-text;
+    padding: 10px 15px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 20px auto;
+    font-family: $primary-font;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+    min-width: auto;
+    display: flex;
+    align-items: center;  
+    flex: none;
+    
+        &:hover {
+            background-color: $primary-color;
+        }
+    }
+
+.home__shared-buttons-help {
+    background-color: $accent-color;
+    color: $dark-text;
+    border: 2px solid $dark-text;
+    padding: 10px 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 20px auto;
+    font-family: $primary-font;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+    min-width: auto;
+    display: flex;
+    align-items: center;  
+    flex: none;
+    margin-top: 0%;
+        
+        &:hover {
+            background-color: $primary-color;
+        }
+    }
+
+.home__do-card-heading {
+    font-size: $font-size-lg;
+    font-weight: bold;
+    color: $dark-text;
+}
+
+// MOBILE VIEWPORT
+// HERO BANNER
+.home {
+  position: relative;
+  width: auto;
+  height: 65vh; 
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: $accent-color;
+  overflow: hidden;
+  background-color: $light-text;
+
+  &__image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: transform(-50%, -50%);
+      z-index: 1;
+  }
+
+  &__buttons {
+        display: flex;
+        align-items: center; 
+        width: 100%;
+    }
+
+  &__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(52, 52, 52, 0.5);
+      z-index: 2;
+  }
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    padding: 1rem;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+      &-heading {
+          font-size: 1.8rem;
+          font-family: $primary-font;
+          font-weight: bold;
+          margin-bottom: 0.3em;
+      }
+
+      &-text {
+          font-size: $font-size-md;
+          font-family: $secondary-font;
+          margin-top: 0%;
+      }
+  }
+
+// WHO WE ARE & BE A PAWTECTOR
+  &__do-image {
+      width: 90%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 0.5rem;
+  }
+
+  &__do-card-text {
+      font-size: $font-size-sm;
+      color: $dark-text;
+      margin-bottom: 1rem;
+      font-family: $secondary-font;
+  }
+
+// MEET OUR PACK
+    &__card-tablet {
+        display: none; 
+    }
+
+    &__card-desktop {
+        display: none; 
+    }
+
+    &__carousel {
+        display: flex;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        max-width: 300px;
+        margin: auto;
+    }
+
+    &__carousel-container {
+        display: flex;
+        overflow: hidden;
+        width: 100%;
+        max-width: 250px;
+    }
+
+    &__carousel-slide {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+
+        &.active {
+            display: flex;
+        }
+
+        &.slide-next {
+            animation: slideInFromRight 0.6s ease-in-out forwards;
+        }
+
+        &.slide-prev {
+            animation: slideInFromLeft 0.6s ease-in-out forwards;
+        }
+    }
+
+    &__carousel-image {
+        width: 100%;
+        max-width: fit-content;
+    }
+
+    &__carousel-info {
+        font-size: $font-size-md;
+        background: $accent-color;
+        color: $dark-text;
+        padding: 10px;
+        border-radius: 10px;
+        width: 100%;
+        text-align: center;
+        font-family: $secondary-font;
+    }
+
+    &__carousel-btn {
+        background: none;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+        color: $dark-text;
+        transition: 0.3s;
+
+        &:hover {
+            color: $primary-color;
+        }
+    }
+
+    @keyframes slideInFromRight {
+        from {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideInFromLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+
+// HOW YOU CAN HELP US
+    &__help-options {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 50px;
+        justify-content: center; 
+        width: 100%;
+        text-align: center;
+    }
+
+    &__help-item a {
+        text-decoration: none; 
+    }
+
+    &__help-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    &__help-image {
+        width: 80px;
+        height: auto;
+    }
+
+// CONTACT US
+    &__contactus {
+        text-align: center;
+        padding: 20px;
+        
+        &-header {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        &-icon {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 10px;
+
+            i {
+                font-size: $font-size-xl;
+                background: none;
+                padding: 10px;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+}
+
+// TABLET VIEWPORT
+@media (min-width: 768px) and (max-width: 1023px) {  
+    .home {
+    //BANNER
+            height: 60vh;
+            flex-direction: column;
+            align-items: flex-start; 
+            
+            &__content {
+                width: 100%;
+                max-width: 700px; 
+                align-items: flex-start; 
+                text-align: left;
+                padding-left: 30px; 
+                
+                &-heading {
+                    font-size: 2.2rem;
+                    margin-bottom: 15px; 
+                }
+        
+                &-text {
+                    font-size: 1.1rem;
+                    padding: 0 !important;
+                }
+            }
+
+            &__do {
+                margin-top: 20px;
+            }
+        
+            &__buttons {
+                width: auto; 
+                gap:25px;
+            }
+
+            &__main-buttons {
+                align-self: center; 
+            }
+      
+      // WHO WE ARE & BE A PAWTECTOR
+        &__card {
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+            max-width: 70vw;
+        }
+        
+        &__do-grid {
+            display: flex;
+            align-items: center; 
+            justify-content: center; 
+            gap: 20px;
+        }
+        
+        
+        &__do-text-container {
+            flex: 1;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; 
+        }
+        
+        &__do-image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center; 
+            align-items: flex-start; 
+        }
+        
+        &__do-image {
+            max-width: 100%; 
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        
+
+        &__do-card-heading {
+            font-size: 1.4rem;
+            color: $dark-text;
+        }
+
+        &__do-card-text {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            max-width: 100%;
+        }
+    
+    // MEET OUR PACK
+    &__card-tablet {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        background: $light-text;
+    }
+        
+    &__card-our-pack-mobile {
+        display: none;
+    }
+        
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 80px;
+        align-items: center;
+        padding: 20px;
+    }
+        
+    &__grid-item {
+        position: relative;
+        border-radius: 12px; 
+        border: 3px solid $dark-text; 
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+                
+    &__image-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+                
+            img {
+                width: 180px;
+                height: 160px; 
+                object-fit:cover; 
+            }
+    }
+                
+    &__info-container {
+        padding: 10px;
+        background: $accent-color;
+        width: 160px;
+        height: auto;
+        min-height: 80px; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+                    
+            p {
+                padding: 0;  
+                margin: 2px 0; 
+                line-height: 1.5; 
+                font-size: 1.1rem;
+                white-space: normal;
+                word-wrap: break-word; 
+                text-align: center;
+                }
+            }
+            
+
+      // HOW YOU CAN HELP US
+
+
+      // CONTACT US
+          &__contactus {   
+              &-icon {
+                  gap: 20px;
+              }
+          }
+      }
+}
+
+//DESKTOP VIEWPORT
+@media screen and (min-width: 1024px) { 
+    .home {
+        //Banner
+        height: 55vh;
+        
+            &__do {
+                    padding-top: 6rem;
+                }
+
+                &__card {
+                    padding: 2rem;
+                    max-width: 60%;
+                    margin-bottom: 40px;
+                }
+                
+                &__content {
+                    width: 100%;
+                    align-items: flex-start;
+            
+                    &-heading {
+                        font-size: 3rem; 
+                        padding-left: 60px;
+                    }
+            
+                    &-text {
+                        font-size: 1.2rem;
+                        padding-left: 60px;
+                    }
+                }
+
+                &__shared-buttons {
+                    font-size: $font-size-md;
+                    padding: 15px 25px;
+                }
+
+                &__buttons {
+                    gap: 40px;
+                    padding-left: 60px;
+                    width: auto; 
+                }
+    
+                &__main-buttons {
+                    display: flex;
+                    margin-top: 20px; 
+                    width: 100%;
+                }
+
+          // WHO WE ARE & BE A PAWTECTOR
+          &__do-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;  
+            align-items: center;
+        }
+        
+        &__do-text-container {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            padding-right: 10px;
+        }
+        
+        &__do-image-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        &__do-image {
+            max-width: 65%;
+            object-fit: cover;
+            margin-top: 15px;
+            margin-right: 80px;
+        }
+        
+            &__do-card-heading {
+                font-size: 1.6rem;
+                margin-bottom: 1rem;
+            }
+    
+            &__do-card-text {
+                font-size: $font-size-lg;
+                line-height: 1.5;
+                color: $dark-text;
+                max-width: 100%;
+                padding-left:70px;
+            }
+          
+          // MEET OUR PACK
+          &__card-our-pack-mobile {
+              display: none;
+          }
+
+          &__card-tablet {
+            display: none; 
+        }
+
+          &__card-desktop {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        &__grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        &__grid-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        &__grid-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        &__image-container {
+            width: 100%;
+            height: 210px;
+            overflow: hidden;
+        }
+        
+        &__grid-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        &__info-container {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba($accent-color, 0.8);
+            color: $dark-text;
+            padding: 10px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+
+            p {
+                font-size: $font-size-md;
+                margin: 0;
+                line-height: 1.7;
+                text-align: center;
+                padding-right: 20px;
+            }
+        }
+        
+        
+        &__grid-item:hover .home__info-container {
+            opacity: 1;
+        }
+          
+          // HOW YOU CAN HELP US
+          &__shared-buttons-help {
+            margin-top: -30px;
+            font-size: $font-size-md;
+            
+                &:hover {
+                    background-color: $primary-color;
+                }
+            }
+
+              &__help-item {
+                gap: 25px; 
+            }
+            
+            &__help-image {
+                width: 100px;
+                height: auto;
+                margin-bottom: 10px;
+            }
+            
+          // CONTACT US
+              &__contactus {        
+                  &-icon {
+                      gap: 50px;
+                      margin: 20px;
+          
+                      i {
+                          font-size: 2rem;
+                      }
+                  }
+              }
+          }
+    }
