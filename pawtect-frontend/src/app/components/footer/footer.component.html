@@ -9,16 +9,16 @@
     <div class="footer__links">
       <h3>Pawtection Links</h3>
       <ul>
-        <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="/about">About Us</a></li>
-        <li><a routerLink="/our-pack">Our Pack</a></li>
-        <li><a routerLink="/pawtector">Be A Pawtector</a></li>
+        <li><a routerLink="/" (click)="scrollToTop()">Home</a></li>
+        <li><a routerLink="/about" (click)="scrollToTop()">About Us</a></li>
+        <li><a routerLink="/our-pack" (click)="scrollToTop()">Our Pack</a></li>
+        <li><a routerLink="/pawtector" (click)="scrollToTop()">Be A Pawtector</a></li>
       </ul>
     </div>
 
     <!-- ABOUT SECTION -->
     <div class="footer__about">
-      <a routerLink="/">
+      <a routerLink="/" (click)="scrollToTop()">
         <img
           src="assets/images/pawtect-logo.svg"
           alt="Logo of Pawtect"

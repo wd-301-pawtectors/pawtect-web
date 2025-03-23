@@ -12,5 +12,8 @@ export class NavbarComponent {
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
+      if (!this.menuOpen) {
+    window.scrollTo(0, 0);
+  }
   }
 }

@@ -8,8 +8,8 @@
         <h1 class="home__content-heading">Home – Give Animals a Second Chance!</h1>
         <p class="home__content-text">Help us rescue, care for, and rehome stray animals in Angeles City.</p>
         <div class="home__buttons">
-            <button class="home__shared-buttons" routerLink="/our-pack">Meet Our Pack</button>
-            <button class="home__shared-buttons" routerLink="/pawtector">Be a Pawtector</button>
+            <button class="home__shared-buttons" routerLink="/our-pack" (click)="scrollToTop()">Meet Our Pack</button>
+            <button class="home__shared-buttons" routerLink="/pawtector" (click)="scrollToTop()">Be a Pawtector</button>
         </div>
     </div>
 </div>
@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="home__main-buttons">
-                <button class="home__shared-buttons" routerLink="/about">Learn more About Us</button>
+                <button class="home__shared-buttons" routerLink="/about" (click)="scrollToTop()">Learn more About Us</button>
             </div>
         </div>
     </div>
@@ -63,7 +63,7 @@
                 </div>
                 <button class="home__carousel-btn next" (click)="nextSlide()">&#10095;</button>
             </div>
-            <button class="home__shared-buttons" routerLink="/our-pack">See all Animals</button>
+            <button class="home__shared-buttons" routerLink="/our-pack" (click)="scrollToTop()">See all Animals</button>
         </div>
 
         <!-- TABLET GRID -->
@@ -80,7 +80,7 @@
                     </div>
                 </div>
             </div>
-            <button class="home__shared-buttons" routerLink="/our-pack">See all Animals</button>
+            <button class="home__shared-buttons" routerLink="/our-pack" (click)="scrollToTop()">See all Animals</button>
         </div>
 
         <!-- DESKTOP GRID -->
@@ -97,7 +97,7 @@
                     </div>
                 </div>
             </div>
-            <button class="home__shared-buttons" routerLink="/our-pack">See all Animals</button>
+            <button class="home__shared-buttons" routerLink="/our-pack" (click)="scrollToTop()">See all Animals</button>
         </div>
     </div>
 
@@ -116,7 +116,7 @@
             </div>
         </div>
         <div class="home__main-buttons">
-            <button class="home__shared-buttons" routerLink="/pawtector">Get Involved</button>
+            <button class="home__shared-buttons" routerLink="/pawtector" (click)="scrollToTop()">Get Involved</button>
         </div>
     </div>
 </div>
@@ -130,7 +130,7 @@
                 <img [src]="option.image" [alt]="option.buttonText" class="home__help-image">
             </div>
             <div class="home__help-content">
-                <button class="home__shared-buttons-help" [routerLink]="option.link">
+                <button class="home__shared-buttons-help" [routerLink]="option.link" (click)="scrollToTop()">
                     {{ option.buttonText }}
                 </button>
             </div>
@@ -148,6 +148,6 @@
             <i class="fab fa-instagram"></i>
             <i class="fab fa-x-twitter"></i>
         </div>
-        <button class="home__shared-buttons" routerLink="/pawtector">Reach Out</button>
+        <button class="home__shared-buttons" routerLink="/pawtector" (click)="scrollToTop()">Reach Out</button>
     </div>
 </div>
