@@ -1,21 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;600&family=Poppins:wght@600;700&display=swap');
-
 // COLOR AND FONT VARIABLES
-$primary-color: #C3E3FF; // ONAHAU
-$accent-color: #FFDFC3; // NEGRONI
-$dark-text: #1A1A1A;
+$primary-color: #c3e3ff; // ONAHAU
+$accent-color: #ffdfc3; // NEGRONI
+$dark-text: #1a1a1a;
 $light-text: #f2f2f2;
 $menu-bg: rgba(195, 227, 255, 0.95);
 $transition: 0.5s ease-in-out;
-$primary-font: 'Poppins', sans-serif;
-$secondary-font: 'Figtree', sans-serif;
+$primary-font: "Poppins", sans-serif;
+$secondary-font: "Figtree", sans-serif;
 
 //Font Sizes
 $font-size-sm: 0.9rem;
 $font-size-md: 1rem;
 $font-size-lg: 1.2rem;
 $font-size-xl: 1.5rem;
-
 
 //Spacing
 $spacing-sm: 1rem;
@@ -30,81 +27,110 @@ $desktop: 1024px;
 
 //Responsive Mixins
 @mixin mobile {
-    @media (max-width: #{$mobile}) {
-        @content; }}
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
 @mixin tablet {
-    @media (min-width: 768px) and (max-width: #{$tablet}) {
-        @content; }}
+  @media (min-width: 768px) and (max-width: #{$tablet}) {
+    @content;
+  }
+}
 @mixin desktop {
-    @media (min-width: #{$desktop}) {
-        @content; }}
-
-
-
-body {
-    font-family:$secondary-font;
-    background-color: $light-text;
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
 }
 
-h1, h2, h3, .btn {
-    font-family: $primary-font;
+body {
+  font-family: $secondary-font;
+  background-color: $light-text;
+}
+
+h1,
+h2,
+h3,
+.btn {
+  font-family: $primary-font;
 }
 
 //PAWTECTOR BANNER
 .pawtector-banner {
-  background: url('/assets/images/pawtector/pawtector-banner.webp') no-repeat center/cover;
+  position: relative;
+  width: auto;
   height: 65vh;
-  display: grid;
-  place-content: center;
-  color: #FFDFC3;
-  padding: $spacing-md;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: $accent-color;
+  overflow: hidden;
+  background-color: $light-text;
+  background:
+    linear-gradient(rgba(52, 52, 52, 0.3), rgba(52, 52, 52, 0.3)),
+    url("/assets/images/pawtector/pawtector-banner.webp");
+  background-size: cover;
+  background-position: center;
 
   .pawtector-content {
-    border-radius: 0.9375rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    padding: $spacing-sm;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 
     h1 {
-      font-size: 1.8rem;
-      margin-bottom: 2rem;
-      line-height: 1.2;
+      font-size: $font-size-xl;
       font-family: $primary-font;
-      color: $accent-color;
+      font-weight: bold;
+      margin-bottom: $spacing-sm;
     }
 
     p {
-      margin-bottom: 2rem;
-      font-size: 1rem;
+      font-size: $font-size-md;
       font-family: $secondary-font;
-      color: $accent-color;
+      margin-top: 0%;
     }
   }
 
   .pawtector-buttons {
     display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    justify-content: center;
     align-items: center;
+    width: 100%;
 
     .btn {
-      width: 10rem;
-      background: $accent-color;
-      border: 2px solid $dark-text;
-      padding: 0.75rem 1.5rem;
-      border-radius: 5px;
-      cursor: pointer;
+      background-color: $accent-color;
       color: $dark-text;
+      border: 2px solid $dark-text;
+      font-size: $font-size-sm;
+      padding: 10px 15px;
       font-weight: bold;
-      font-size: 1rem;
-    }
-  }
+      border-radius: 100px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin: 20px auto;
+      font-family: $primary-font;
+      text-align: center;
+      white-space: nowrap;
+      width: fit-content;
+      min-width: auto;
+      display: flex;
+      align-items: center;
+      flex: none;
 
-  @media (min-width: 768px) {
-    .pawtector-content {
-      width: 60%;
+      &:hover {
+        background-color: $primary-color;
+      }
     }
   }
 }
-//PAWTECTOR INFO 
+
+//PAWTECTOR INFO
 .info-section {
   display: flex;
   flex-direction: column;
@@ -115,20 +141,20 @@ h1, h2, h3, .btn {
   h2 {
     color: $dark-text;
     font-family: $primary-font;
-    font-size: $font-size-xl;
+    font-size: $font-size-lg;
     text-align: center;
   }
 
   p {
     color: $dark-text;
     font-family: $secondary-font;
-    font-size: $font-size-md;
+    font-size: $font-size-sm;
     text-align: center;
   }
 
   .card {
-    background-color: #F2F2F2;
-    border: 2px solid #1A1A1A;
+    background-color: #f2f2f2;
+    border: 2px solid #1a1a1a;
     border-radius: 1.25rem;
     padding: $spacing-lg;
     text-align: center;
@@ -170,51 +196,50 @@ h1, h2, h3, .btn {
     }
   }
 }
-//PAWTECTOR CTA 
+//PAWTECTOR CTA
 .cta-section {
-  background: url('/assets/images/pawtector/pawtector-cta.webp') no-repeat center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25vh;
+  background: url("/assets/images/pawtector/pawtector-cta.webp") center/cover
+    no-repeat;
   text-align: center;
-  padding: $spacing-sm $spacing-md;
-  height: 35.55vh;
+  padding: $spacing-md $spacing-lg;
+  color: $accent-color;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: overlay;
 
-  h2 {
-    color: $light-text;
+  &__container {
+    max-width: 100%;
+    padding: $spacing-sm;
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: bold;
     font-family: $primary-font;
-    font-weight: 700;
-    margin-bottom: 0.625rem;
-    font-size: $font-size-lg; 
   }
 
-  p {
-    color: $light-text;
+  &__description {
+    font-size: $font-size-sm;
     font-family: $secondary-font;
-    margin-bottom: $spacing-lg; 
-    font-size: $font-size-sm;
-    text-align: center;
+    margin-bottom: $spacing-md;
   }
 
-  .donate-btn {
-    background-color: $accent-color;
-    color: $dark-text;
-    border-radius: 0.3125rem; 
+  &__btn {
+    background: $accent-color;
     padding: $spacing-sm $spacing-md;
-    font-weight: bold;
-    border: 2px solid $dark-text;
+    border: 1px solid $dark-text;
+    border-radius: 25px;
     cursor: pointer;
-    transition: background 0.3s ease, border-color 0.3s ease;
-
-    &:hover {
-      background-color: $light-text;
-    }
-  }
-
-  .cta-footer {
-    margin-top: 0.9375rem; 
     font-weight: bold;
-    color: $light-text;
     font-size: $font-size-sm;
+    transition: $transition;
+    margin-bottom: $spacing-sm;
   }
 }
+
 //PAWTECTOR SEPARATOR
 .separator {
   text-align: center;
@@ -225,7 +250,9 @@ h1, h2, h3, .btn {
 .paw {
   display: inline-block;
   cursor: pointer;
-  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition:
+    transform 0.3s ease-in-out,
+    color 0.3s ease-in-out;
 }
 
 .paw:hover {
@@ -257,7 +284,7 @@ h1, h2, h3, .btn {
   }
 
   mat-card-title {
-    font-size: 1.5rem;
+    font-size: $font-size-lg;
     font-weight: bold;
     font-family: $primary-font;
     color: $dark-text;
@@ -381,7 +408,9 @@ h1, h2, h3, .btn {
       border: 0.125rem solid $dark-text;
       border-radius: 1rem;
       cursor: pointer;
-      transition: background-color 0.3s ease, border-color 0.3s ease;
+      transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease;
     }
 
     &__file-name {
@@ -403,96 +432,98 @@ $tablet-card-width: 500px;
 $tablet-card-padding: 1.5rem;
 $tablet-cta-padding: 15px;
 
-@media (min-width: 768px) and (max-width: 1023px){
-
+@media (min-width: 768px) and (max-width: 1023px) {
   .pawtector-banner {
-    height: $tablet-banner-height;
-  
+    height: 60vh;
+    flex-direction: column;
+    align-items: flex-start;
+
     .pawtector-content {
-      max-width: 90%;
-      display: flex;
-      flex-direction: column;
+      width: 100%;
+      max-width: 700px;
       align-items: flex-start;
       text-align: left;
-  
+      padding-left: $spacing-lg;
+
       h1 {
-        font-size: $tablet-heading1-size;
+        font-size: $font-size-lg * 1.5;
+        margin-bottom: $spacing-sm / 2;
       }
-  
-      h2 {
-        font-size: $tablet-heading2-size;
-      }
-  
-      h3 {
-        font-size: $tablet-heading3-size;
-      }
-  
+
       p {
-        font-size: $tablet-paragraph-size;
+        font-size: $font-size-md;
+        padding: 0 !important;
       }
     }
-  
+
     .pawtector-buttons {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 0.85rem 1.75rem;
-      gap: 1.5rem;
-      white-space: nowrap;
       width: auto;
-  
+      gap: $spacing-sm;
+
       .btn {
-        width: 17rem;
-        background: $accent-color;
-        border: 2px solid $dark-text;
-        border-radius: 5px;
-        cursor: pointer;
+        background-color: $accent-color;
         color: $dark-text;
+        border: 2px solid $dark-text;
+        font-size: $font-size-sm;
+        padding: 10px 15px;
         font-weight: bold;
+        border-radius: 100px;
+        cursor: pointer;
+        transition: 0.3s;
+        margin: 20px auto;
+        font-family: $primary-font;
         text-align: center;
-        font-size:1.1rem ;
+        white-space: nowrap;
+        width: fit-content;
+        min-width: auto;
+        display: flex;
+        align-items: center;
+        flex: none;
+
+        &:hover {
+          background-color: $primary-color;
+        }
       }
     }
   }
-  
+
   .info-section {
     gap: 1.5rem;
-  
+
     h2 {
       font-size: $tablet-heading2-size;
     }
-  
+
     p {
       font-size: $tablet-paragraph-size;
     }
-  
+
     .card {
       width: 90%;
       max-width: $tablet-card-width;
       padding: $tablet-card-padding;
-  
+
       h2 {
         font-size: $tablet-heading2-size;
       }
-  
+
       h3 {
         font-size: $tablet-heading3-size;
       }
-  
+
       p {
         font-size: $tablet-paragraph-size;
       }
     }
   }
-  
+
   .cta-section {
     padding: 1.5rem;
-  
+
     h2 {
       font-size: $tablet-heading2-size;
     }
-  
+
     p {
       font-size: $tablet-paragraph-size;
     }
@@ -502,7 +533,7 @@ $tablet-cta-padding: 15px;
       font-size: 1.1rem;
     }
   }
-  
+
   .pawtector-forms {
     display: flex;
     flex-wrap: wrap;
@@ -512,7 +543,7 @@ $tablet-cta-padding: 15px;
     padding: 1.5rem;
     margin: 1.5rem;
     gap: 1.5rem;
-  
+
     mat-card {
       width: 34rem;
       background-color: $light-text;
@@ -521,14 +552,14 @@ $tablet-cta-padding: 15px;
       box-sizing: border-box;
       border: 2px solid $dark-text;
     }
-  
+
     mat-card-header {
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
     }
-  
+
     mat-card-title {
       font-size: 1.5rem;
       font-weight: bold;
@@ -536,7 +567,7 @@ $tablet-cta-padding: 15px;
       color: $dark-text;
       padding: 1.5rem;
     }
-  
+
     mat-label {
       font-size: $font-size-sm;
       color: $dark-text;
@@ -550,13 +581,13 @@ $tablet-cta-padding: 15px;
       color: $dark-text;
       padding: 1.5rem;
     }
-  
+
     mat-form-field {
       margin: 0.1rem auto;
       display: block;
       width: 27rem;
     }
-  
+
     button {
       display: flex;
       justify-content: center;
@@ -569,57 +600,57 @@ $tablet-cta-padding: 15px;
       transition: border-color 0.3s ease;
       font-size: 1.1rem;
       padding: 1.5rem;
-  
+
       &:hover {
         border-color: $dark-text;
       }
-  
+
       &:disabled {
         border-color: #7c7c7c;
-      background-color: #faf1e9;
-      color: $dark-text;
-      border-radius: 5px;
+        background-color: #faf1e9;
+        color: $dark-text;
+        border-radius: 5px;
       }
     }
-  
+
     input[matInput],
     mat-select {
       padding: 0.3125rem;
     }
-  
+
     textarea[matInput] {
       padding: 0.3125rem;
     }
-  
+
     span {
       font-size: $font-size-md;
       color: $dark-text;
       font-family: $secondary-font;
       padding: 1.5rem;
     }
-  
+
     .volunteer-form {
       &__combined-role {
         display: inline-flex;
         justify-content: center;
-  
+
         mat-form-field {
           width: 12rem;
           padding: 1.5rem;
         }
       }
-  
+
       &__volunteer-time {
         display: flex;
-  
+
         mat-form-field {
           width: 10rem;
         }
       }
-  
+
       &__display {
         margin: 1.5rem;
-  
+
         mat-card {
           display: flex;
           flex-direction: row;
@@ -631,7 +662,7 @@ $tablet-cta-padding: 15px;
           width: 27.5rem;
           background-color: $light-text;
           border-color: $dark-text;
-  
+
           p {
             display: flex;
             margin: 2rem;
@@ -639,7 +670,7 @@ $tablet-cta-padding: 15px;
             color: #333;
             flex: 1;
           }
-  
+
           button {
             margin-left: 1.5rem;
             color: $dark-text;
@@ -648,7 +679,7 @@ $tablet-cta-padding: 15px;
             align-items: center;
             border-color: $light-text;
             background-color: $light-text;
-  
+
             mat-icon {
               font-size: 1.5rem;
               display: contents;
@@ -657,18 +688,18 @@ $tablet-cta-padding: 15px;
         }
       }
     }
-  
+
     .report-form {
       &__combined {
         display: inline-flex;
         justify-content: center;
-  
+
         mat-form-field {
           width: 12rem;
           padding: 1.5rem;
         }
       }
-  
+
       &__photo-upload {
         display: flex;
         flex-direction: row;
@@ -676,7 +707,7 @@ $tablet-cta-padding: 15px;
         justify-content: center;
         gap: 1.5rem;
       }
-  
+
       &__upload-button {
         display: inline-flex;
         align-items: center;
@@ -688,9 +719,11 @@ $tablet-cta-padding: 15px;
         border: 0.125rem solid $dark-text;
         border-radius: 5px;
         cursor: pointer;
-        transition: background-color 0.3s ease, border-color 0.3s ease;
+        transition:
+          background-color 0.3s ease,
+          border-color 0.3s ease;
       }
-  
+
       &__file-name {
         display: flex;
         flex-direction: row;
@@ -699,12 +732,12 @@ $tablet-cta-padding: 15px;
         font-style: italic;
       }
     }
-  
+
     .contact-form {
       &__combined {
         display: inline-flex;
         justify-content: center;
-  
+
         mat-form-field {
           width: 12rem;
           padding: 1.5rem;
@@ -712,90 +745,82 @@ $tablet-cta-padding: 15px;
       }
     }
   }
-
 }
-
 
 $desktop-banner-height: 55vh;
 $desktop-content-width: 60rem;
-$desktop-heading1-size:2.5rem;
+$desktop-heading1-size: 2.5rem;
 $desktop-heading2-size: 2rem;
 $desktop-heading3-size: 1.6rem;
 $desktop-paragraph-size: 1.2rem;
-$desktop-component-spacing:2rem;
+$desktop-component-spacing: 2rem;
 $desktop-section-padding: 4rem;
 $desktop-card-width: 900px;
 
-@media (min-width:1024px){
-
+@media (min-width: 1024px) {
   .pawtector-banner {
-    height: $desktop-banner-height;
-    display: flex;
-    align-items: center;
-  
+    height: 55vh;
+
     .pawtector-content {
-      max-width: 80%;
-      display: flex;
-      flex-direction: column;
+      width: 100%;
       align-items: flex-start;
-      text-align: left;
-  
+
       h1 {
-        font-size: $desktop-heading1-size;
+        font-size: 2.2rem;
+        padding-left: 4rem;
       }
-  
-      h2 {
-        font-size: $desktop-heading2-size;
-      }
-  
-      h3 {
-        font-size: $desktop-heading3-size;
-      }
-  
+
       p {
-        font-size: $desktop-paragraph-size;
+        font-size: $font-size-lg;
+        padding-left: 4rem;
       }
     }
-  
+
     .pawtector-buttons {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 2rem;
-      padding: 1rem 2rem;
-      white-space: nowrap;
+      gap: $spacing-md;
+      padding-left: 4rem;
       width: auto;
-  
       .btn {
-        width: 16rem;
-        background: $accent-color;
-        border: 2px solid $dark-text;
-        padding: 1rem 2rem;
-        border-radius: 5px;
-        cursor: pointer;
+        background-color: $accent-color;
         color: $dark-text;
+        border: 2px solid $dark-text;
+        font-size: $font-size-sm;
+        padding: $spacing-sm $spacing-md;
         font-weight: bold;
+        border-radius: 100px;
+        cursor: pointer;
+        transition: 0.3s;
+        margin: 20px auto;
+        font-family: $primary-font;
         text-align: center;
-        font-size: 1.2rem;
+        white-space: nowrap;
+        width: fit-content;
+        min-width: auto;
+        display: flex;
+        align-items: center;
+        flex: none;
+
+        &:hover {
+          background-color: $primary-color;
+        }
       }
     }
   }
-  
+
   .info-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 4rem;
-  
+
     h2 {
       font-size: $desktop-heading2-size;
     }
-  
+
     p {
       font-size: $desktop-paragraph-size;
     }
-  
+
     .card {
       width: 80%;
       max-width: $desktop-card-width;
@@ -803,64 +828,59 @@ $desktop-card-width: 900px;
       border-radius: 12px;
       padding: 2rem;
       background-color: $light-text;
-  
+
       h2 {
         font-size: $desktop-heading2-size;
         text-align: center;
         margin-bottom: 4rem;
       }
-  
+
       h3 {
         font-size: $desktop-heading3-size;
         text-align: center;
       }
-  
+
       p {
         font-size: $desktop-paragraph-size;
         text-align: center;
       }
     }
   }
-  
+
   .pawtector__buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
   }
-  
+
   .pawtector__btn {
     padding: 12px 24px;
     font-size: 1.2rem;
   }
-  
+
   .cta-section {
     padding: 100px;
-   
-  
+
     h2 {
       font-size: $tablet-heading2-size;
     }
-  
+
     p {
       font-size: $tablet-paragraph-size;
     }
-  
-    .donate-btn {
-      padding: 1rem 2rem
 
-      ;
+    .donate-btn {
+      padding: 1rem 2rem;
       font-size: 1.2rem;
     }
   }
-  
+
   .separator {
     text-align: center;
     font-size: 1.2rem;
-    margin: 1rem 2rem
-
-    ;
+    margin: 1rem 2rem;
   }
-  
+
   .pawtector-forms {
     display: flex;
     flex-wrap: wrap;
@@ -870,7 +890,7 @@ $desktop-card-width: 900px;
     padding: 2rem;
     margin: 1rem 2rem;
     gap: 2rem;
-  
+
     mat-card {
       width: 40rem;
       background-color: $light-text;
@@ -880,7 +900,7 @@ $desktop-card-width: 900px;
       box-sizing: border-box;
       border: 2px solid $dark-text;
     }
-  
+
     mat-card-header {
       display: flex;
       justify-content: center;
@@ -888,29 +908,26 @@ $desktop-card-width: 900px;
       text-align: center;
       padding: 2rem;
     }
-  
+
     mat-card-title {
       font-size: $desktop-heading2-size;
       font-weight: bold;
       font-family: $primary-font;
       color: $dark-text;
-     
     }
-  
+
     mat-label {
       font-size: 1.2rem;
       color: $dark-text;
       font-family: $secondary-font;
     }
-  
+
     mat-form-field {
       width: 34rem;
       display: block;
       margin: 2rem;
-     
-      
     }
-  
+
     button {
       display: flex;
       justify-content: center;
@@ -923,64 +940,63 @@ $desktop-card-width: 900px;
       transition: border-color 0.3s ease;
       font-size: 1.2rem;
       padding: 2rem;
-  
+
       &:hover {
         border-color: $dark-text;
       }
-  
+
       &:disabled {
         border-color: #7c7c7c;
         background-color: #faf1e9;
         color: $dark-text;
       }
     }
-  
-    
+
     textarea[matInput],
     mat-select {
       padding: 5px;
     }
-  
+
     span {
       font-size: 1.2rem;
       color: $dark-text;
       font-family: $secondary-font;
       align-items: flex-start;
     }
-  
+
     .volunteer-form {
       &__combined {
         display: flex;
         justify-content: center;
-  
+
         mat-form-field {
           width: 15rem;
           gap: 2rem;
         }
       }
-  
+
       &__combined-role {
         display: flex;
         justify-content: center;
-  
+
         mat-form-field {
           width: 15rem;
           gap: 2rem;
         }
       }
-  
+
       &__volunteer-time {
         display: flex;
-  
+
         mat-form-field {
           width: 15rem;
           gap: 2rem;
         }
       }
-  
+
       &__display {
         margin: 2rem;
-  
+
         mat-card {
           display: flex;
           flex-direction: row;
@@ -992,15 +1008,14 @@ $desktop-card-width: 900px;
           border-color: $dark-text;
           width: 33.5rem;
           text-align: right;
-  
-          p {
 
+          p {
             font-size: $font-size-sm;
             color: #333;
             flex: 1;
             text-align: center;
           }
-  
+
           button {
             margin-left: 2rem;
             color: $dark-text;
@@ -1008,7 +1023,7 @@ $desktop-card-width: 900px;
             display: flex;
             align-items: center;
             border-color: $light-text;
-  
+
             mat-icon {
               font-size: 1.2rem;
             }
@@ -1016,30 +1031,30 @@ $desktop-card-width: 900px;
         }
       }
     }
-  
+
     .report-form {
       &__combined {
         display: inline-flex;
         justify-content: center;
-  
+
         mat-form-field {
           width: 15rem;
           gap: 2rem;
         }
       }
-  
+
       &__photo-upload {
         display: flex;
         flex-direction: row;
         align-items: center;
         gap: 2rem;
       }
-  
+
       &__upload-button {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        padding: 1rem 2rem ;
+        padding: 1rem 2rem;
         background-color: $accent-color;
         color: $dark-text;
         font-size: $desktop-paragraph-size;
@@ -1047,9 +1062,11 @@ $desktop-card-width: 900px;
         border: 2px solid $dark-text;
         border-radius: 5px;
         cursor: pointer;
-        transition: background-color 0.3s ease, border-color 0.3s ease;
+        transition:
+          background-color 0.3s ease,
+          border-color 0.3s ease;
       }
-  
+
       &__file-name {
         font-size: $desktop-paragraph-size;
         color: $dark-text;
@@ -1057,12 +1074,12 @@ $desktop-card-width: 900px;
         text-align: center;
       }
     }
-  
+
     .contact-form {
       &__combined {
         display: inline-flex;
         justify-content: center;
-  
+
         mat-form-field {
           width: 15rem;
           gap: 2rem;

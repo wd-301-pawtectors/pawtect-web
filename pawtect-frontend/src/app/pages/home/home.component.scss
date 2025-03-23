@@ -52,104 +52,103 @@ $transition: 0.5s ease-in-out;
 // GENERAL STYLES
 // GENERAL STYLES
 .home__card {
-    background-color: $light-text;
-    border-radius: 10px;
-    padding: $spacing-sm;
-    text-align: center;
-    width: 90%;
-    max-width: 400px;
-    border: 2px solid $dark-text;
-    margin: 0 auto; 
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background-color: $light-text;
+  border-radius: 10px;
+  padding: $spacing-sm;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  border: 2px solid $dark-text;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .home__do {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: $spacing-lg;
-    gap: $spacing-md;
-    background-color: $light-text;
-    padding-top: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $spacing-lg;
+  gap: $spacing-md;
+  background-color: $light-text;
+  padding-top: $spacing-xl;
 }
 
 .home__shared-buttons {
-    background-color: $accent-color;
-    color: $dark-text;
-    border: 2px solid $dark-text;
-    padding: 10px 15px;
-    font-size: $font-size-sm;
-    font-weight: bold;
-    border-radius: 100px;
-    cursor: pointer;
-    transition: 0.3s;
-    margin: 20px auto;
-    font-family: $primary-font;
-    text-align: center;
-    white-space: nowrap;
-    width: fit-content;
-    min-width: auto;
-    display: flex;
-    align-items: center;  
-    flex: none;
-    
-        &:hover {
-            background-color: $primary-color;
-        }
+  background-color: $accent-color;
+  color: $dark-text;
+  border: 2px solid $dark-text;
+  padding: 10px 15px;
+  font-size: $font-size-sm;
+  font-weight: bold;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 20px auto;
+  font-family: $primary-font;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+  min-width: auto;
+  display: flex;
+  align-items: center;
+  flex: none;
+
+  &:hover {
+    background-color: $primary-color;
+  }
 }
 
 .home__shared-buttons-help {
-    background-color: $accent-color;
-    color: $dark-text;
-    border: 2px solid $dark-text;
-    padding: 10px 15px;
-    font-size: $font-size-sm;
-    font-weight: bold;
-    border-radius: 100px;
-    cursor: pointer;
-    transition: 0.3s;
-    margin: 20px auto;
-    font-family: $primary-font;
-    text-align: center;
-    white-space: nowrap;
-    width: fit-content;
-    min-width: auto;
-    display: flex;
-    align-items: center;  
-    flex: none;
-    margin-top: 0%;
-        
-        &:hover {
-            background-color: $primary-color;
-        }
+  background-color: $accent-color;
+  color: $dark-text;
+  border: 2px solid $dark-text;
+  padding: 10px 15px;
+  font-size: $font-size-sm;
+  font-weight: bold;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 20px auto;
+  font-family: $primary-font;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+  min-width: auto;
+  display: flex;
+  align-items: center;
+  flex: none;
+  margin-top: 0%;
+
+  &:hover {
+    background-color: $primary-color;
+  }
 }
 
 .home__do-card-heading {
-    font-size: $font-size-lg;
-    font-weight: bold;
-    color: $dark-text;
+  font-size: $font-size-lg;
+  font-weight: bold;
+  color: $dark-text;
 }
 
 .home-contactus-icons {
-    text-decoration: none;
-    color: $dark-text;
+  text-decoration: none;
+  color: $dark-text;
 }
 // GENERAL STYLES
 // GENERAL STYLES
 // GENERAL STYLES
 
-
 // MOBILE VIEWPORT
 // MOBILE VIEWPORT
 // MOBILE VIEWPORT
-    // HERO BANNER
+// HERO BANNER
 .home {
   position: relative;
   width: auto;
-  height: 65vh; 
+  height: 65vh;
   display: flex;
   align-items: center;
   text-align: center;
@@ -158,30 +157,30 @@ $transition: 0.5s ease-in-out;
   background-color: $light-text;
 
   &__image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform: transform(-50%, -50%);
-      z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: transform(-50%, -50%);
+    z-index: 1;
   }
 
   &__buttons {
-        display: flex;
-        align-items: center; 
-        width: 100%;
-    }
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
 
   &__overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(52, 52, 52, 0.5);
-      z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(52, 52, 52, 0.6);
+    z-index: 2;
   }
 
   &__content {
@@ -197,548 +196,547 @@ $transition: 0.5s ease-in-out;
     align-items: center;
     text-align: center;
 
-      &-heading {
-          font-size: $font-size-xl;
-          font-family: $primary-font;
-          font-weight: bold;
-          margin-bottom: $spacing-sm;
-      }
+    &-heading {
+      font-size: $font-size-xl;
+      font-family: $primary-font;
+      font-weight: bold;
+      margin-bottom: $spacing-sm;
+    }
 
-      &-text {
-          font-size: $font-size-md;
-          font-family: $secondary-font;
-          margin-top: 0%;
-      }
+    &-text {
+      font-size: $font-size-md;
+      font-family: $secondary-font;
+      margin-top: 0%;
+    }
   }
 
-    // WHO WE ARE & BE A PAWTECTOR
+  // WHO WE ARE & BE A PAWTECTOR
   &__do-image {
-      width: 90%;
-      height: auto;
-      border-radius: 10px;
-      margin-top: $spacing-md;
-      margin-bottom: $spacing-sm;
+    width: 90%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: $spacing-md;
+    margin-bottom: $spacing-sm;
   }
 
   &__do-card-text {
-      font-size: $font-size-sm;
-      color: $dark-text;
-      margin-bottom: $spacing-sm;
-      font-family: $secondary-font;
+    font-size: $font-size-sm;
+    color: $dark-text;
+    margin-bottom: $spacing-sm;
+    font-family: $secondary-font;
   }
+
+  // MEET OUR PACK
+  &__card-tablet {
+    display: none;
+  }
+
+  &__card-desktop {
+    display: none;
+  }
+
+  &__carousel {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+  }
+
+  &__carousel-container {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    max-width: 250px;
+  }
+
+  &__carousel-slide {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+
+    &.active {
+      display: flex;
+    }
+
+    &.slide-next {
+      animation: slideInFromRight 0.6s ease-in-out forwards;
+    }
+
+    &.slide-prev {
+      animation: slideInFromLeft 0.6s ease-in-out forwards;
+    }
+  }
+
+  &__carousel-image {
+    width: 100%;
+    max-width: fit-content;
+  }
+
+  &__carousel-info {
+    font-size: $font-size-md;
+    background: $accent-color;
+    color: $dark-text;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    font-family: $secondary-font;
+  }
+
+  &__carousel-btn {
+    background: none;
+    border: none;
+    font-size: $font-size-xl;
+    cursor: pointer;
+    color: $dark-text;
+    transition: 0.3s;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  @keyframes slideInFromRight {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInFromLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  // HOW YOU CAN HELP US
+  &__help-options {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: $spacing-xl;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__help-item a {
+    text-decoration: none;
+  }
+
+  &__help-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__help-image {
+    width: 80px;
+    height: auto;
+  }
+
+  // CONTACT US
+  &__contactus {
+    text-align: center;
+    padding: $spacing-md;
+
+    &-header {
+      font-size: $font-size-xl;
+      font-weight: bold;
+      margin-bottom: $spacing-sm;
+    }
+
+    &-icon {
+      display: flex;
+      gap: $spacing-sm / 3;
+      margin-bottom: $spacing-sm;
+
+      i {
+        font-size: $font-size-xl;
+        background: none;
+        padding: $spacing-sm / 2;
+        width: $spacing-lg;
+        height: $spacing-lg;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+// MOBILE VIEWPORT
+// MOBILE VIEWPORT
+// MOBILE VIEWPORT
+
+// TABLET VIEWPORT
+// TABLET VIEWPORT
+// TABLET VIEWPORT
+@media (min-width: 768px) and (max-width: 1023px) {
+  .home {
+    //BANNER
+    height: 60vh;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &__content {
+      width: 100%;
+      max-width: 700px;
+      align-items: flex-start;
+      text-align: left;
+      padding-left: $spacing-lg;
+
+      &-heading {
+        font-size: $font-size-lg * 1.5;
+        margin-bottom: $spacing-sm / 2;
+      }
+
+      &-text {
+        font-size: $font-size-md;
+        padding: 0 !important;
+      }
+    }
+
+    &__do {
+      margin-top: $spacing-md;
+    }
+
+    &__buttons {
+      width: auto;
+      gap: $spacing-sm;
+    }
+
+    &__main-buttons {
+      align-self: center;
+    }
+
+    // WHO WE ARE & BE A PAWTECTOR
+    &__card {
+      display: flex;
+      align-items: center;
+      padding: $spacing-lg;
+      max-width: 70vw;
+    }
+
+    &__do-grid {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: $spacing-sm;
+    }
+
+    &__do-text-container {
+      flex: 1;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    &__do-image-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    &__do-image {
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+      border-radius: $spacing-sm;
+    }
+
+    &__do-card-heading {
+      font-size: $font-size-xl;
+      color: $dark-text;
+    }
+
+    &__do-card-text {
+      font-size: $font-size-md;
+      line-height: 1.5;
+      max-width: 100%;
+    }
 
     // MEET OUR PACK
     &__card-tablet {
-        display: none; 
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      background: $light-text;
     }
 
-    &__card-desktop {
-        display: none; 
+    &__card-our-pack-mobile {
+      display: none;
     }
 
-    &__carousel {
-        display: flex;
-        align-items: center;
-        position: relative;
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4rem;
+      align-items: center;
+      padding: $spacing-md;
+    }
+
+    &__grid-item {
+      position: relative;
+      border-radius: $spacing-sm;
+      border: 3px solid $dark-text;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &__image-container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+
+      img {
         width: 100%;
-        max-width: 300px;
-        margin: auto;
+        height: 10em;
+        object-fit: cover;
+      }
     }
 
-    &__carousel-container {
-        display: flex;
-        overflow: hidden;
-        width: 100%;
-        max-width: 250px;
-    }
+    &__info-container {
+      padding: $spacing-sm;
+      background: $accent-color;
+      width: 10rem;
+      height: auto;
+      min-height: 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
 
-    &__carousel-slide {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-
-        &.active {
-            display: flex;
-        }
-
-        &.slide-next {
-            animation: slideInFromRight 0.6s ease-in-out forwards;
-        }
-
-        &.slide-prev {
-            animation: slideInFromLeft 0.6s ease-in-out forwards;
-        }
-    }
-
-    &__carousel-image {
-        width: 100%;
-        max-width: fit-content;
-    }
-
-    &__carousel-info {
+      p {
+        padding: 0;
+        margin: 2px 0;
+        line-height: 1.5;
         font-size: $font-size-md;
-        background: $accent-color;
-        color: $dark-text;
-        padding: 10px;
-        border-radius: 10px;
-        width: 100%;
+        white-space: normal;
+        word-wrap: break-word;
         text-align: center;
-        font-family: $secondary-font;
-    }
-
-    &__carousel-btn {
-        background: none;
-        border: none;
-        font-size: $font-size-xl;
-        cursor: pointer;
-        color: $dark-text;
-        transition: 0.3s;
-
-        &:hover {
-            color: $primary-color;
-        }
-    }
-
-    @keyframes slideInFromRight {
-        from {
-            opacity: 0;
-            transform: translateX(100%);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-
-    @keyframes slideInFromLeft {
-        from {
-            opacity: 0;
-            transform: translateX(-100%);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-
-
-    // HOW YOU CAN HELP US
-    &__help-options {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: $spacing-xl;
-        justify-content: center; 
-        width: 100%;
-        text-align: center;
-    }
-
-    &__help-item a {
-        text-decoration: none; 
-    }
-
-    &__help-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    &__help-image {
-        width: 80px;
-        height: auto;
+      }
     }
 
     // CONTACT US
     &__contactus {
+      &-icon {
+        gap: $spacing-md;
+      }
+    }
+  }
+}
+// TABLET VIEWPORT
+// TABLET VIEWPORT
+// TABLET VIEWPORT
+
+//DESKTOP VIEWPORT
+//DESKTOP VIEWPORT
+//DESKTOP VIEWPORT
+@media screen and (min-width: 1024px) {
+  .home {
+    height: 55vh;
+
+    // BANNER
+    &__do {
+      padding-top: $spacing-xl * 2;
+    }
+
+    &__card {
+      padding: $spacing-lg;
+      max-width: 60%;
+      margin-bottom: $spacing-xl;
+    }
+
+    &__content {
+      width: 100%;
+      align-items: flex-start;
+
+      &-heading {
+        font-size: 2.2rem;
+        padding-left: 4rem;
+      }
+
+      &-text {
+        font-size: $font-size-lg;
+        padding-left: 4rem;
+      }
+    }
+
+    &__shared-buttons {
+      font-size: $font-size-md;
+      padding: $spacing-sm $spacing-md;
+    }
+
+    &__buttons {
+      gap: $spacing-md;
+      padding-left: 4rem;
+      width: auto;
+    }
+
+    &__main-buttons {
+      display: flex;
+      margin-top: $spacing-md;
+      width: 100%;
+    }
+
+    // WHO WE ARE & BE A PAWTECTOR
+    &__do-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: $spacing-sm;
+      align-items: center;
+    }
+
+    &__do-text-container {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      padding-right: $spacing-sm;
+    }
+
+    &__do-image-container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    &__do-image {
+      max-width: 65%;
+      object-fit: cover;
+      margin-top: $spacing-sm;
+      margin-right: 4rem;
+    }
+
+    &__do-card-heading {
+      font-size: $font-size-xl;
+      margin-bottom: $spacing-sm;
+    }
+
+    &__do-card-text {
+      font-size: $font-size-lg;
+      line-height: 1.5;
+      color: $dark-text;
+      max-width: 100%;
+      padding-left: 4rem;
+    }
+
+    // MEET OUR PACK
+    &__card-our-pack-mobile {
+      display: none;
+    }
+
+    &__card-tablet {
+      display: none;
+    }
+
+    &__card-desktop {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: $spacing-md;
+      max-width: 75rem;
+      margin: 0 auto;
+    }
+
+    &__grid-item {
+      position: relative;
+      border-radius: $spacing-sm;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &__grid-item:hover {
+      transform: translateY(-5px);
+    }
+
+    &__image-container {
+      width: 100%;
+      height: 13.125rem;
+      overflow: hidden;
+    }
+
+    &__grid-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    &__info-container {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba($accent-color, 0.8);
+      color: $dark-text;
+      padding: $font-size-sm;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+
+      p {
+        font-size: $font-size-md;
+        margin: 0;
+        line-height: 1.7;
         text-align: center;
-        padding: $spacing-md;
-        
-        &-header {
-            font-size: $font-size-xl;
-            font-weight: bold;
-            margin-bottom: $spacing-sm;
-        }
-
-        &-icon {
-            display: flex;
-            gap: $spacing-sm / 3;
-            margin-bottom: $spacing-sm;
-
-            i {
-                font-size: $font-size-xl;
-                background: none;
-                padding: $spacing-sm / 2;
-                width: $spacing-lg;
-                height: $spacing-lg;
-                display: flex;
-                align-items: center;
-            }
-        }
+        padding-right: $spacing-md;
+      }
     }
-}
-// MOBILE VIEWPORT
-// MOBILE VIEWPORT
-// MOBILE VIEWPORT
 
-// TABLET VIEWPORT
-// TABLET VIEWPORT
-// TABLET VIEWPORT
-@media (min-width: 768px) and (max-width: 1023px) {  
-    .home {
-        //BANNER
-        height: 60vh;
-        flex-direction: column;
-        align-items: flex-start; 
-                
-        &__content {
-                    width: 100%;
-                    max-width: 700px; 
-                    align-items: flex-start; 
-                    text-align: left;
-                    padding-left: $spacing-lg;
-                    
-                    &-heading {
-                        font-size: $font-size-lg * 1.5;
-                        margin-bottom: $spacing-sm / 2; 
-                    }
-            
-                    &-text {
-                        font-size: $font-size-md;
-                        padding: 0 !important;
-                    }
-        }
-
-        &__do {
-                    margin-top: $spacing-md;
-        }
-            
-        &__buttons {
-                    width: auto; 
-                    gap:$spacing-sm;
-        }
-
-        &__main-buttons {
-                    align-self: center; 
-        }
-
-        // WHO WE ARE & BE A PAWTECTOR
-        &__card {
-                display: flex;
-                align-items: center;
-                padding: $spacing-lg;
-                max-width: 70vw;
-        }
-            
-        &__do-grid {
-                display: flex;
-                align-items: center; 
-                justify-content: center; 
-                gap: $spacing-sm;
-        }
-            
-        &__do-text-container {
-                flex: 1;
-                text-align: left;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start; 
-        }
-            
-        &__do-image-container {
-                flex: 1;
-                display: flex;
-                justify-content: center; 
-                align-items: flex-start; 
-        }
-            
-        &__do-image {
-                max-width: 100%; 
-                width: 100%;
-                height: auto;
-                border-radius: $spacing-sm;
-        }
-            
-        &__do-card-heading {
-                font-size: $font-size-xl;
-                color: $dark-text;
-        }
-
-        &__do-card-text {
-                font-size: $font-size-md;
-                line-height: 1.5;
-                max-width: 100%;
-        }
-
-        // MEET OUR PACK
-        &__card-tablet {
-                display: flex;
-                flex-direction: column;
-                height: auto;
-                background: $light-text;
-        }
-                
-        &__card-our-pack-mobile {
-                display: none;
-        }
-                
-        &__grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr); 
-                gap: 4rem;
-                align-items: center;
-                padding: $spacing-md;
-        }
-                
-        &__grid-item {
-                position: relative;
-                border-radius: $spacing-sm; 
-                border: 3px solid $dark-text; 
-                overflow: hidden;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                transition: transform 0.3s ease-in-out;
-        }
-                        
-        &__image-container {
-                display: flex;
-                justify-content: center;
-                width: 100%;
-                        
-                    img {
-                        width: 100%;
-                        height: 10em; 
-                        object-fit:cover; 
-                    }
-        }
-                        
-        &__info-container {
-                padding: $spacing-sm;
-                background: $accent-color;
-                width: 10rem;
-                height: auto;
-                min-height: 5rem; 
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-                            
-                    p {
-                        padding: 0;  
-                        margin: 2px 0; 
-                        line-height: 1.5; 
-                        font-size: $font-size-md;
-                        white-space: normal;
-                        word-wrap: break-word; 
-                        text-align: center;
-                        }
-        }
-                
-        // CONTACT US
-        &__contactus {   
-                &-icon {
-                    gap: $spacing-md;
-                }
-        }
+    &__grid-item:hover .home__info-container {
+      opacity: 1;
     }
-}
-// TABLET VIEWPORT
-// TABLET VIEWPORT
-// TABLET VIEWPORT
 
-//DESKTOP VIEWPORT
-//DESKTOP VIEWPORT
-//DESKTOP VIEWPORT
-@media screen and (min-width: 1024px) { 
-    .home {
-        height: 55vh;
+    // HOW YOU CAN HELP US
+    &__shared-buttons-help {
+      font-size: $font-size-md;
 
-        // BANNER
-        &__do {
-            padding-top: $spacing-xl * 2;
-        }
-
-        &__card {
-                    padding: $spacing-lg;
-                    max-width: 60%;
-                    margin-bottom: $spacing-xl;
-        }
-                
-        &__content {
-                    width: 100%;
-                    align-items: flex-start;
-            
-                    &-heading {
-                        font-size: 2.2rem;
-                        padding-left: 4rem;
-                    }
-            
-                    &-text {
-                        font-size: $font-size-lg;
-                        padding-left: 4rem;
-                    }
-        }
-
-        &__shared-buttons {
-                    font-size: $font-size-md;
-                    padding: $spacing-sm $spacing-md;
-        }
-
-        &__buttons {
-                    gap: $spacing-md;
-                    padding-left: 4rem;
-                    width: auto; 
-        }
-    
-        &__main-buttons {
-                    display: flex;
-                    margin-top: $spacing-md; 
-                    width: 100%;
-        }
-
-        // WHO WE ARE & BE A PAWTECTOR
-        &__do-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: $spacing-sm;  
-            align-items: center;
-        }
-        
-        &__do-text-container {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-            padding-right: $spacing-sm;
-        }
-        
-        &__do-image-container {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-        }
-
-        &__do-image {
-            max-width: 65%;
-            object-fit: cover;
-            margin-top: $spacing-sm;
-            margin-right: 4rem;
-        }
-        
-        &__do-card-heading {
-                font-size:$font-size-xl;
-                margin-bottom: $spacing-sm;
-        }
-    
-        &__do-card-text {
-                font-size: $font-size-lg;
-                line-height: 1.5;
-                color: $dark-text;
-                max-width: 100%;
-                padding-left: 4rem;
-        }
-
-        // MEET OUR PACK
-        &__card-our-pack-mobile {
-            display: none;
-        }
-
-        &__card-tablet {
-            display: none; 
-        }
-
-        &__card-desktop {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        &__grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: $spacing-md;
-            max-width: 75rem;
-            margin: 0 auto;
-        }
-        
-        &__grid-item {
-            position: relative;
-            border-radius: $spacing-sm;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
-        
-        &__grid-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        &__image-container {
-            width: 100%;
-            height: 13.125rem;
-            overflow: hidden;
-        }
-        
-        &__grid-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 0.3s ease-in-out;
-        }
-        
-        &__info-container {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            background: rgba($accent-color, 0.8);
-            color: $dark-text;
-            padding: $font-size-sm;
-            text-align: center;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-
-            p {
-                font-size: $font-size-md;
-                margin: 0;
-                line-height: 1.7;
-                text-align: center;
-                padding-right: $spacing-md;
-            }
-        }
-        
-        &__grid-item:hover .home__info-container {
-            opacity: 1;
-        }
-        
-        // HOW YOU CAN HELP US
-        &__shared-buttons-help {
-            font-size: $font-size-md;
-            
-                &:hover {
-                    background-color: $primary-color;
-                }
-        }
-
-        &__help-item {
-                gap: $spacing-md; 
-        }
-            
-        &__help-image {
-            width: 100px;
-            height: auto;
-            margin-bottom: 0;
-        }
-            
-        // CONTACT US
-        &__contactus {        
-            &-icon {
-                gap: $spacing-xl;
-                margin: $spacing-lg;
-          
-            i {
-                font-size: $font-size-xl;
-                }
-            }
-        }
+      &:hover {
+        background-color: $primary-color;
+      }
     }
+
+    &__help-item {
+      gap: $spacing-md;
+    }
+
+    &__help-image {
+      width: 100px;
+      height: auto;
+      margin-bottom: 0;
+    }
+
+    // CONTACT US
+    &__contactus {
+      &-icon {
+        gap: $spacing-xl;
+        margin: $spacing-lg;
+
+        i {
+          font-size: $font-size-xl;
+        }
+      }
+    }
+  }
 }
 //DESKTOP VIEWPORT
 //DESKTOP VIEWPORT

@@ -26,6 +26,9 @@ $mobile: 767px;
 $tablet: 1023px;
 $desktop: 1024px;
 
+// Transitions
+$transition: 0.5s ease-in-out;
+
 // Responsive Mixins
 @mixin mobile {
   @media (max-width: #{$mobile}) {
@@ -45,69 +48,113 @@ $desktop: 1024px;
   }
 }
 
-// HEADER
 .header {
-  background: url("/assets/images/our-pack/our-pack-header-section.webp")
-    center/cover no-repeat;
-  background-size: cover;
-  padding-top: $spacing-lg;
-  padding-bottom: $spacing-lg;
-  color: $light-text;
-  text-align: center;
+  position: relative;
+  width: auto;
   height: 65vh;
-  width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  text-align: center;
+  color: $accent-color;
+  overflow: hidden;
+  background-color: $light-text;
 
-  &__title {
-    color: $accent-color;
-    font-size: 1.8rem;
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: transform(-50%, -50%);
+    z-index: 1;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(52, 52, 52, 0.6);
+    z-index: 2;
+  }
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    padding: 1rem;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    &-heading {
+      font-size: $font-size-xl;
+      font-family: $primary-font;
+      font-weight: bold;
+      margin-bottom: $spacing-sm;
+    }
+
+    &-text {
+      font-size: $font-size-md;
+      font-family: $secondary-font;
+      margin-top: 0%;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    width: auto;
+  }
+
+  &__shared-buttons {
+    background-color: $accent-color;
+    color: $dark-text;
+    border: 2px solid $dark-text;
+    padding: 10px 15px;
+    font-size: $font-size-sm;
     font-weight: bold;
-    padding: 0 2rem;
-  }
-
-  &__subtitle {
-    font-family: $secondary-font;
-    color: $accent-color;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    padding: 0 2rem;
-  }
-
-  &__btn {
-    background: $accent-color;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 5px;
+    border-radius: 100px;
     cursor: pointer;
-    font-weight: bold;
-    font-size: $font-size-md;
-    transition: 0.5s ease-in-out;
-    outline: $dark-text solid 2px;
+    transition: 0.3s;
+    margin: 20px auto;
+    font-family: $primary-font;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+    min-width: auto;
+    display: flex;
+    align-items: center;
+    flex: none;
 
     &:hover {
-      background: darken($accent-color, 10%);
+      background-color: $primary-color;
     }
   }
 }
 
-// SEARCH
 .search {
   display: flex;
   justify-content: center;
   margin: 1rem 0;
-  padding-top: 2rem;
+  padding-top: $spacing-lg;
+  padding-left: 2rem;
+  padding-right: 2rem;
 
   &__form {
     display: flex;
     align-items: center;
-    gap: 20px;
     background: #fff;
     border: 1px solid $dark-text;
     border-radius: 10px;
-    padding: 0.5rem 1rem;
+    padding: 1rem 0.5rem;
+    position: relative;
 
     input {
       border: none;
@@ -118,11 +165,39 @@ $desktop: 1024px;
       flex-grow: 1;
     }
 
-    button {
+    .search__icons {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+
+      button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 18px;
+        color: $dark-text;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+        border-radius: 50%;
+        transition: 0.5s ease-in-out;
+
+        &:hover {
+          color: $primary-color;
+          /* Change color on hover */
+        }
+      }
+    }
+
+    .clear-btn {
+      position: absolute;
+      right: 90px;
+      /* Adjust this value to ensure it doesn't overlap with the icons */
       background: none;
       border: none;
       cursor: pointer;
-      font-size: 1rem;
+      font-size: 18px;
       color: $dark-text;
       display: flex;
       align-items: center;
@@ -130,24 +205,11 @@ $desktop: 1024px;
       padding: 0.5rem;
       border-radius: 50%;
       transition: 0.5s ease-in-out;
-    }
 
-    .search__icons {
-      display: flex;
-      align-items: right;
-      gap: 2px;
-    }
-
-    .search__icons button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 18px;
-      color: $dark-text;
-    }
-
-    .search__icons button:hover {
-      color: $primary-color; /* Change color on hover */
+      &:hover {
+        color: $primary-color;
+        /* Change color on hover */
+      }
     }
   }
 }
@@ -262,9 +324,10 @@ $desktop: 1024px;
 .cards-container {
   display: flex;
   flex-wrap: wrap;
-  gap: $spacing-sm;
+  column-gap: $spacing-sm;
+  row-gap: $spacing-md;
   justify-content: center;
-  padding: 15px;
+  padding: $spacing-lg;
   padding-bottom: $spacing-lg;
 
   &__card {
@@ -457,51 +520,48 @@ $desktop: 1024px;
   }
 }
 
-// CTA
+// HERO
 .pet-match {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 300px;
+  height: 30vh;
   background: url("/assets/images/our-pack/our-pack-hero-section.webp")
     center/cover no-repeat;
   text-align: center;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding: $spacing-md $spacing-lg;
+  color: $accent-color;
+  // ADDING OVERLAY TO THE IMAGE
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: overlay;
 
   &__container {
-    max-width: 500px;
-    padding: 1.5rem;
+    max-width: 100%;
+    padding: $spacing-sm;
   }
 
   &__container__title {
-    font-size: $font-size-xl;
+    font-size: $font-size-lg;
     font-weight: bold;
-    color: $light-text;
     font-family: $primary-font;
   }
 
   &__container__description {
-    font-size: 1rem;
-    margin-top: 0.5rem;
+    font-size: $font-size-sm;
     font-family: $secondary-font;
-    color: $light-text;
+    margin-bottom: $spacing-md;
   }
 
-  &__button {
+  &__btn {
     background: $accent-color;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 5px;
+    padding: $spacing-sm $spacing-md;
+    border: 1px solid $dark-text;
+    border-radius: 25px;
     cursor: pointer;
     font-weight: bold;
-    font-size: $font-size-md;
-    transition: 0.5s ease-in-out;
-    outline: $dark-text solid 2px;
-
-    &:hover {
-      background: darken($accent-color, 10%);
-    }
+    font-size: $font-size-sm;
+    transition: $transition;
+    margin-bottom: $spacing-sm;
   }
 }
 
@@ -516,9 +576,61 @@ $desktop: 1024px;
   transition: 0.5s ease-in-out;
   outline: $dark-text solid 2px;
   margin-left: 1rem;
+  display: inline-block;
 
   &:hover {
     background: darken($accent-color, 10%);
+  }
+}
+
+.search__form {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #fff;
+  border: 1px solid $dark-text;
+  border-radius: 10px;
+  padding: 1rem 0.5rem;
+
+  input {
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    flex-grow: 1;
+  }
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: $dark-text;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: 0.5s ease-in-out;
+  }
+
+  .search__icons {
+    display: flex;
+    align-items: right;
+    gap: 2px;
+  }
+
+  .search__icons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: $dark-text;
+  }
+
+  .search__icons button:hover {
+    color: $primary-color; /* Change color on hover */
   }
 }
 
@@ -526,31 +638,34 @@ $desktop: 1024px;
 @include tablet {
   .header {
     height: 60vh;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    flex-direction: column;
+    align-items: flex-start;
 
-    &__btn {
-      font-size: $font-size-md;
-      margin-top: 5px;
-      margin-left: 60px;
-      padding: 0.85rem 1rem;
-      width: 23%;
-      align-self: flex-start;
+    &__content {
+      width: 100%;
+      max-width: 700px;
+      align-items: flex-start;
+      text-align: left;
+      padding-left: $spacing-lg;
+
+      &-heading {
+        font-size: $font-size-lg * 1.5;
+        margin-bottom: $spacing-sm / 2;
+      }
+
+      &-text {
+        font-size: $font-size-md;
+        padding: 0 !important;
+      }
     }
 
-    &__title {
-      font-size: 2.2rem;
-      text-align: left;
-      width: 80%;
-      padding-left: 0px;
-      margin: 0;
+    &__buttons {
+      width: auto;
+      gap: $spacing-sm;
     }
 
-    &__subtitle {
-      font-size: 1.1rem;
-      text-align: left;
-      width: 80%;
-      padding-left: 0px;
+    &__shared-buttons {
+      align-self: center;
     }
   }
 
@@ -590,6 +705,7 @@ $desktop: 1024px;
   .cards-container {
     gap: $spacing-md;
     padding-bottom: 3rem;
+    justify-content: center;
 
     &__card {
       width: calc(33.33% - 12px);
@@ -671,7 +787,7 @@ $desktop: 1024px;
   }
 
   .pet-match {
-    height: 250px;
+    height: 20vh;
     padding-top: 3rem;
     padding-bottom: 3rem;
 
@@ -695,36 +811,72 @@ $desktop: 1024px;
   .header {
     height: 55vh;
 
-    &__btn {
+    &__content {
+      width: 100%;
+      align-items: flex-start;
+      text-align: left;
+      padding-left: $spacing-lg;
+
+      &-heading {
+        font-size: 3rem;
+        padding-left: 60px;
+      }
+
+      &-text {
+        font-size: 1.2rem;
+        padding-left: 60px;
+      }
+    }
+
+    &__buttons {
+      justify-content: flex-start;
+      padding-left: $spacing-lg;
+    }
+
+    &__shared-buttons {
       font-size: 1.2rem;
-      margin-top: 5px;
-      margin-left: 170px;
       padding: 1rem 2rem;
-      width: 12%;
-      align-self: flex-start;
+      justify-content: flex-start;
+    }
+  }
+
+  .header {
+    height: 55vh;
+
+    &__content {
+      width: 100%;
+      align-items: flex-start;
+
+      &-heading {
+        font-size: 2.2rem;
+        padding-left: 4rem;
+      }
+
+      &-text {
+        font-size: $font-size-lg;
+        padding-left: 4rem;
+      }
     }
 
-    &__title {
-      font-size: 2.5rem;
-      text-align: left;
-      width: 80%;
-      padding-left: 0px;
-      margin: 0;
+    &__buttons {
+      gap: $spacing-md;
+      padding-left: 4rem;
+      width: auto;
     }
 
-    &__subtitle {
-      font-size: 1.2rem;
-      text-align: left;
-      width: 80%;
-      padding-left: 0px;
-      margin-left: 0;
+    &__shared-buttons {
+      font-size: $font-size-md;
+      padding: $spacing-sm $spacing-md;
     }
   }
 
   .search {
     justify-content: center;
-    // padding-left: 25rem;
+    padding-left: 20rem;
+    padding-right: 20rem;
+
     &__form {
+      width: 100%;
       gap: 160px;
       margin-top: 2rem;
       margin-bottom: 2rem;
@@ -849,9 +1001,7 @@ $desktop: 1024px;
   }
 
   .pet-match {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-    height: 300px;
+    height: 30vh;
 
     &__container {
       max-width: 600px;

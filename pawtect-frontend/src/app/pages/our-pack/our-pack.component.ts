@@ -9,13 +9,15 @@ import { RouterModule } from '@angular/router';
   templateUrl: './our-pack.component.html',
   styleUrls: ['./our-pack.component.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule]
+  imports: [CommonModule, FormsModule, RouterModule],
 })
 export class OurPackComponent implements OnInit {
-
   scrollToTop() {
-  window.scrollTo(0, 0);
-}
+    window.scrollTo(0, 0);
+  }
+
+  // HERO BANNER IMAGE
+  imagePath: string = 'assets/images/our-pack/our-pack-header-section.webp';
 
   animals: any[] = [];
   filteredAnimals: any[] = [];
@@ -53,7 +55,7 @@ export class OurPackComponent implements OnInit {
       },
       (error) => {
         console.error('Error fetching animals:', error);
-      }
+      },
     );
   }
 
@@ -100,17 +102,19 @@ export class OurPackComponent implements OnInit {
 
   // APPLY SEARCH
   applySearch(): void {
-    this.http.get<any[]>(`${this.apiUrl}/search-filter?query=${this.searchQuery}`).subscribe(
-      (data) => {
-        this.animals = data;
-        this.currentPage = 1;
-        this.totalPages = Math.ceil(this.animals.length / this.pageSize);
-        this.updateFilteredAnimals();
-      },
-      (error) => {
-        console.error('Error searching animals:', error);
-      }
-    );
+    this.http
+      .get<any[]>(`${this.apiUrl}/search-filter?query=${this.searchQuery}`)
+      .subscribe(
+        (data) => {
+          this.animals = data;
+          this.currentPage = 1;
+          this.totalPages = Math.ceil(this.animals.length / this.pageSize);
+          this.updateFilteredAnimals();
+        },
+        (error) => {
+          console.error('Error searching animals:', error);
+        },
+      );
   }
 
   // APPLY FILTERS
@@ -124,27 +128,29 @@ export class OurPackComponent implements OnInit {
 
     const queryString = filterParams.length ? `?${filterParams.join('&')}` : '';
 
-    this.http.get<any[]>(`${this.apiUrl}/search-filter${queryString}`).subscribe(
-      (data) => {
-        let filtered = data;
-        if (this.selectedAgeGroup) {
-          filtered = filtered.filter((animal) => {
-            const age = animal.age;
-            if (this.selectedAgeGroup === '0-3') return age >= 0 && age <= 3;
-            if (this.selectedAgeGroup === '4-6') return age >= 4 && age <= 6;
-            if (this.selectedAgeGroup === '7+') return age >= 7;
-            return true;
-          });
-        }
-        this.animals = filtered;
-        this.currentPage = 1;
-        this.totalPages = Math.ceil(this.animals.length / this.pageSize);
-        this.updateFilteredAnimals();
-      },
-      (error) => {
-        console.error('Error filtering animals:', error);
-      }
-    );
+    this.http
+      .get<any[]>(`${this.apiUrl}/search-filter${queryString}`)
+      .subscribe(
+        (data) => {
+          let filtered = data;
+          if (this.selectedAgeGroup) {
+            filtered = filtered.filter((animal) => {
+              const age = animal.age;
+              if (this.selectedAgeGroup === '0-3') return age >= 0 && age <= 3;
+              if (this.selectedAgeGroup === '4-6') return age >= 4 && age <= 6;
+              if (this.selectedAgeGroup === '7+') return age >= 7;
+              return true;
+            });
+          }
+          this.animals = filtered;
+          this.currentPage = 1;
+          this.totalPages = Math.ceil(this.animals.length / this.pageSize);
+          this.updateFilteredAnimals();
+        },
+        (error) => {
+          console.error('Error filtering animals:', error);
+        },
+      );
   }
 
   // SCROLL TO ANIMALS

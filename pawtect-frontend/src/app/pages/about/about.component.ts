@@ -5,24 +5,39 @@ import { Router, RouterModule } from '@angular/router';
   selector: 'app-about',
   imports: [RouterModule],
   templateUrl: './about.component.html',
-  styleUrl: './about.component.scss'
+  styleUrl: './about.component.scss',
 })
 export class AboutComponent {
+  scrollToTop() {
+    window.scrollTo(0, 0);
+  }
 
-scrollToTop() {
-  window.scrollTo(0, 0);
-}
-  
+  scrollToWhatWeDo() {
+    const element = document.getElementById('what-we-do');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  scrollToMissionVision() {
+    const element = document.getElementById('mission-vision');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
   constructor(private router: Router) {}
 
   //HEADING IMAGE
   imagePath: string = 'assets/images/about-us/about-hero.webp';
 
   //WHAT WE DO IMAGES
-  card1: string = 'assets/images/about-us/about-adoption-and-rehoming-card.webp';
+  card1: string =
+    'assets/images/about-us/about-adoption-and-rehoming-card.webp';
   card2: string = 'assets/images/about-us/about-animal-rescue-card.webp';
-  card3: string = 'assets/images/about-us/about-community-education-and-awareness-card.webp';
-  
+  card3: string =
+    'assets/images/about-us/about-community-education-and-awareness-card.webp';
+
   //OUR PARTNERS IMAGES
   grid1: string = 'assets/images/about-us/about-cio-logo.webp';
   grid2: string = 'assets/images/about-us/about-cityvet-logo.webp';
@@ -36,13 +51,12 @@ scrollToTop() {
   navigateToVolunteer() {
     this.router.navigate(['/pawtector']);
   }
-   
+
   navigateToDonate() {
     this.router.navigate(['/pawtector']);
   }
-  
+
   navigateToAdopt() {
     this.router.navigate(['/our-pack']);
   }
 }
-

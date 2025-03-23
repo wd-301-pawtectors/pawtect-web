@@ -4,178 +4,292 @@
 <!-- SUBHEADING TEXT -->
 <!-- BUTTONS = TO OUR-PACK AND TO PAWTECTOR -->
 <div class="home">
-    <img [src]="imagePath" alt="Dog Background" class="home__image">
-    <div class="home__overlay"></div>
-    <div class="home__content">
-        <h1 class="home__content-heading">Protecting Paws, One Home at a Time</h1>
-        <p class="home__content-text">Help us Rescue, Care For, and Rehome Stray Animals in Angeles City.</p>
-        <div class="home__buttons">
-            <button class="home__shared-buttons" routerLink="/our-pack" (click)="scrollToTop()">Meet Our Pack</button>
-            <button class="home__shared-buttons" routerLink="/pawtector" (click)="scrollToTop()">Be a Pawtector</button>
-        </div>
+  <img [src]="imagePath" alt="Dog Background" class="home__image" />
+  <div class="home__overlay"></div>
+  <div class="home__content">
+    <h1 class="home__content-heading">
+      Pawtech, Creating A World Without Strays
+    </h1>
+    <p class="home__content-text">
+      Help Us Rescue, Care For, and Rehome Stray Animals in Angeles City.
+    </p>
+    <div class="home__buttons">
+      <button
+        class="home__shared-buttons"
+        routerLink="/our-pack"
+        (click)="scrollToTop()"
+      >
+        Meet Our Pack
+      </button>
+      <button
+        class="home__shared-buttons"
+        routerLink="/pawtector"
+        (click)="scrollToTop()"
+      >
+        Be a Pawtector
+      </button>
     </div>
+  </div>
 </div>
 
 <!-- START OF MAIN SECTION -->
 <div class="home__do">
-    <!-- WHO WE ARE -->
-    <!-- CARD -->
-    <!-- HEADING TEXT -->
-    <!-- TEXT CONTENT -->
-    <!-- IMAGE CONTENT -->
-    <!-- BUTTON = TO ABOUT -->
-    <div class="home__card">
-        <div class="home__do-content">
-            <h3 class="home__do-card-heading">Who We Are</h3>
-            <div class="home__do-grid">
-                <!-- TEXT CONTENT -->
-                <div class="home__do-text-container">
-                    <p class="home__do-card-text">
-                        Pawtect is dedicated to protecting and improving the lives of stray, neglected, and rescued animals in Angeles City. Our mission is to bridge the gap between these vulnerable animals and compassionate individuals willing to adopt, support, and advocate for their welfare.
-                    </p>
-                </div>
-                <!-- IMAGE CONTENT  -->
-                <div class="home__do-image-container">
-                    <img [src]="card1" alt="Who We Are" class="home__do-image">
-                </div>
-            </div>
-            <div class="home__main-buttons">
-                <button class="home__shared-buttons" routerLink="/about" (click)="scrollToTop()">Learn More About Us</button>
-            </div>
+  <!-- WHO WE ARE -->
+  <!-- CARD -->
+  <!-- HEADING TEXT -->
+  <!-- TEXT CONTENT -->
+  <!-- IMAGE CONTENT -->
+  <!-- BUTTON = TO ABOUT -->
+  <div class="home__card">
+    <div class="home__do-content">
+      <h3 class="home__do-card-heading">Who We Are</h3>
+      <div class="home__do-grid">
+        <!-- TEXT CONTENT -->
+        <div class="home__do-text-container">
+          <p class="home__do-card-text">
+            Pawtect is dedicated to protecting and improving the lives of stray,
+            neglected, and rescued animals in Angeles City. Our mission is to
+            bridge the gap between these vulnerable animals and compassionate
+            individuals willing to adopt, support, and advocate for their
+            welfare.
+          </p>
         </div>
+        <!-- IMAGE CONTENT  -->
+        <div class="home__do-image-container">
+          <img [src]="card1" alt="Who We Are" class="home__do-image" />
+        </div>
+      </div>
+      <div class="home__main-buttons">
+        <button
+          class="home__shared-buttons"
+          routerLink="/about"
+          (click)="scrollToTop()"
+        >
+          Learn More About Us
+        </button>
+      </div>
     </div>
+  </div>
 
-    <!-- MEET OUR PACK -->
-    <!-- CARD -->
-    <!-- HEADING TEXT -->
+  <!-- MEET OUR PACK -->
+  <!-- CARD -->
+  <!-- HEADING TEXT -->
+  <!-- MOBILE CAROUSEL -->
+  <!-- TABLET GRID -->
+  <!-- DESKTOP GRID -->
+  <!-- BUTTON = TO OUR-PACK -->
+  <div class="home__card">
+    <h3 class="home__do-card-heading">Meet Our Pack</h3>
+
     <!-- MOBILE CAROUSEL -->
+    <div class="home__card-our-pack-mobile">
+      <div class="home__carousel">
+        <button class="home__carousel-btn prev" (click)="prevSlide()">
+          &#10094;
+        </button>
+        <div class="home__carousel-container">
+          <div
+            *ngFor="let animal of animals; let i = index"
+            class="home__carousel-slide"
+            [ngClass]="{
+              active: i === currentIndex,
+              next: i === (currentIndex + 1) % animals.length,
+              prev: i === (currentIndex - 1 + animals.length) % animals.length,
+              'slide-next': direction === 'next' && i === currentIndex,
+              'slide-prev': direction === 'prev' && i === currentIndex,
+            }"
+          >
+            <img
+              [src]="animal.image"
+              [alt]="animal.name"
+              class="home__carousel-image"
+            />
+            <div class="home__carousel-info">
+              <p><strong>Name:</strong> {{ animal.name }}</p>
+              <p><strong>Age:</strong> {{ animal.age }} year/s old</p>
+              <p><strong>Breed:</strong> {{ animal.breed }}</p>
+            </div>
+          </div>
+        </div>
+        <button class="home__carousel-btn next" (click)="nextSlide()">
+          &#10095;
+        </button>
+      </div>
+      <button
+        class="home__shared-buttons"
+        routerLink="/our-pack"
+        (click)="scrollToTop()"
+      >
+        See All Animals
+      </button>
+    </div>
+
     <!-- TABLET GRID -->
+    <div class="home__card-tablet">
+      <div class="home__grid">
+        <div
+          *ngFor="let animal of animals | slice: 0 : 4"
+          class="home__grid-item"
+        >
+          <div class="home__image-container">
+            <img
+              [src]="animal.image"
+              [alt]="animal.name"
+              class="home__grid-image"
+            />
+          </div>
+          <div class="home__info-container">
+            <p class="home__tabdesk-only">
+              <strong>Name:</strong> {{ animal.name }}
+            </p>
+            <p><strong>Age:</strong> {{ animal.age }} year/s old</p>
+            <p><strong>Breed:</strong> {{ animal.breed }}</p>
+          </div>
+        </div>
+      </div>
+      <button
+        class="home__shared-buttons"
+        routerLink="/our-pack"
+        (click)="scrollToTop()"
+      >
+        See All Animals
+      </button>
+    </div>
+
     <!-- DESKTOP GRID -->
-    <!-- BUTTON = TO OUR-PACK -->
-    <div class="home__card">
-        <h3 class="home__do-card-heading">Meet Our Pack</h3>
-
-        <!-- MOBILE CAROUSEL -->
-        <div class="home__card-our-pack-mobile">
-            <div class="home__carousel">
-                <button class="home__carousel-btn prev" (click)="prevSlide()">&#10094;</button>
-                <div class="home__carousel-container">
-                    <div *ngFor="let animal of animals; let i = index" class="home__carousel-slide" [ngClass]="{
-                        'active': i === currentIndex,
-                        'next': i === (currentIndex + 1) % animals.length,
-                        'prev': i === (currentIndex - 1 + animals.length) % animals.length,
-                        'slide-next': direction === 'next' && i === currentIndex,
-                        'slide-prev': direction === 'prev' && i === currentIndex
-                    }">
-                        <img [src]="animal.image" [alt]="animal.name" class="home__carousel-image">
-                        <div class="home__carousel-info">
-                            <p><strong>Name:</strong> {{ animal.name }}</p>
-                            <p><strong>Age:</strong> {{ animal.age }} year/s old</p>
-                            <p><strong>Breed:</strong> {{ animal.breed }}</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="home__carousel-btn next" (click)="nextSlide()">&#10095;</button>
-            </div>
-            <button class="home__shared-buttons" routerLink="/our-pack" (click)="scrollToTop()">See All Animals</button>
+    <div class="home__card-desktop">
+      <div class="home__grid">
+        <div
+          *ngFor="let pet of animalsdesktop | slice: 0 : 8"
+          class="home__grid-item"
+        >
+          <div class="home__image-container">
+            <img [src]="pet.image" [alt]="pet.name" class="home__grid-image" />
+          </div>
+          <div class="home__info-container">
+            <p class="home__tabdesk-only">
+              <strong>Name:</strong> {{ pet.name }}
+            </p>
+            <p><strong>Age:</strong> {{ pet.age }} year/s old</p>
+            <p><strong>Breed:</strong> {{ pet.breed }}</p>
+          </div>
         </div>
-
-        <!-- TABLET GRID -->
-        <div class="home__card-tablet">
-            <div class="home__grid">
-                <div *ngFor="let animal of animals | slice:0:4" class="home__grid-item">
-                    <div class="home__image-container">
-                        <img [src]="animal.image" [alt]="animal.name" class="home__grid-image">
-                    </div>
-                    <div class="home__info-container">
-                        <p class="home__tabdesk-only"><strong>Name:</strong> {{ animal.name }}</p>
-                        <p><strong>Age:</strong> {{ animal.age }} year/s old</p>
-                        <p><strong>Breed:</strong> {{ animal.breed }}</p>
-                    </div>
-                </div>
-            </div>
-            <button class="home__shared-buttons" routerLink="/our-pack" (click)="scrollToTop()">See All Animals</button>
-        </div>
-
-        <!-- DESKTOP GRID -->
-        <div class="home__card-desktop">
-            <div class="home__grid">
-                <div *ngFor="let pet of animalsdesktop | slice:0:8" class="home__grid-item">
-                    <div class="home__image-container">
-                        <img [src]="pet.image" [alt]="pet.name" class="home__grid-image">
-                    </div>
-                    <div class="home__info-container">
-                        <p class="home__tabdesk-only"><strong>Name:</strong> {{ pet.name }}</p>
-                        <p><strong>Age:</strong> {{ pet.age }} year/s old</p>
-                        <p><strong>Breed:</strong> {{ pet.breed }}</p>
-                    </div>
-                </div>
-            </div>
-            <button class="home__shared-buttons" routerLink="/our-pack" (click)="scrollToTop()">See All Animals</button>
-        </div>
+      </div>
+      <button
+        class="home__shared-buttons"
+        routerLink="/our-pack"
+        (click)="scrollToTop()"
+      >
+        See All Animals
+      </button>
     </div>
+  </div>
 
-    <!-- BE A PAWTECTOR -->
-    <!-- CARD -->
-    <!-- HEADING TEXT -->
-    <!-- TEXT CONTENT -->
-    <!-- IMAGE CONTENT -->
-    <!-- BUTTON = TO PAWTECTOR -->
-    <div class="home__card">
-        <div class="home__do-content">
-            <h3 class="home__do-card-heading">Be A Pawtector</h3>
-            <div class="home__do-grid">
-                <div class="home__do-text-container">
-                    <p class="home__do-card-text">
-                        Make a difference in the lives of stray and rescued animals! Join us as a volunteer or support our mission through donations. Every effort counts in giving them a better future.
-                    </p>
-                </div>
-                <div class="home__do-image-container">
-                    <img [src]="card2" alt="Be a Pawtector" class="home__do-image">
-                </div>
-            </div>
-            <div class="home__main-buttons">
-                <button class="home__shared-buttons" routerLink="/pawtector" (click)="scrollToTop()">Get Involved</button>
-            </div>
+  <!-- BE A PAWTECTOR -->
+  <!-- CARD -->
+  <!-- HEADING TEXT -->
+  <!-- TEXT CONTENT -->
+  <!-- IMAGE CONTENT -->
+  <!-- BUTTON = TO PAWTECTOR -->
+  <div class="home__card">
+    <div class="home__do-content">
+      <h3 class="home__do-card-heading">Be A Pawtector</h3>
+      <div class="home__do-grid">
+        <div class="home__do-text-container">
+          <p class="home__do-card-text">
+            Make a difference in the lives of stray and rescued animals! Join us
+            as a volunteer or support our mission through donations. Every
+            effort counts in giving them a better future.
+          </p>
         </div>
+        <div class="home__do-image-container">
+          <img [src]="card2" alt="Be a Pawtector" class="home__do-image" />
+        </div>
+      </div>
+      <div class="home__main-buttons">
+        <button
+          class="home__shared-buttons"
+          routerLink="/pawtector"
+          (click)="scrollToTop()"
+        >
+          Get Involved
+        </button>
+      </div>
     </div>
+  </div>
 
-    <!-- HOW YOU CAN HELP -->
-    <!-- CARD -->
-    <!-- HEADING TEXT -->
-    <!-- HELP OPTIONS -->
-    <!-- IMAGES -->
-    <!-- BUTTONS = TO DONATE, TO ADOPT, TO VOLUNTEER, TO REPORT -->
-    <div class="home__card">
-        <h3 class="home__do-card-heading">How You Can Help</h3>
-        <div class="home__help-options">
-            <div class="home__help-item" *ngFor="let option of helpOptions">
-                <div class="home__help-image-wrapper">
-                    <img [src]="option.image" [alt]="option.buttonText" class="home__help-image">
-                </div>
-                <div class="home__help-content">
-                    <button class="home__shared-buttons-help" [routerLink]="option.link" (click)="scrollToTop()">
-                        {{ option.buttonText }}
-                    </button>
-                </div>
-            </div>
+  <!-- HOW YOU CAN HELP -->
+  <!-- CARD -->
+  <!-- HEADING TEXT -->
+  <!-- HELP OPTIONS -->
+  <!-- IMAGES -->
+  <!-- BUTTONS = TO DONATE, TO ADOPT, TO VOLUNTEER, TO REPORT -->
+  <div class="home__card">
+    <h3 class="home__do-card-heading">How You Can Help</h3>
+    <div class="home__help-options">
+      <div class="home__help-item" *ngFor="let option of helpOptions">
+        <div class="home__help-image-wrapper">
+          <img
+            [src]="option.image"
+            [alt]="option.buttonText"
+            class="home__help-image"
+          />
         </div>
+        <div class="home__help-content">
+          <button
+            class="home__shared-buttons-help"
+            [routerLink]="option.link"
+            (click)="scrollToTop()"
+          >
+            {{ option.buttonText }}
+          </button>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <!-- CONTACT US -->
-    <!-- CARD -->
-    <!-- HEADING TEXT -->
-    <!-- ICONS -->
-    <!-- BUTTON = TO PAWTECTOR -->
-    <div class="home__contactus">
-        <h3 class="home__do-card-heading">Contact Us</h3>
-        <div class="home__contactus-icon">
-            <a class="home-contactus-icons" href="mailto:info@pawtect.org" target="_blank"><i class="fas fa-envelope"></i></a>
-            <a class="home-contactus-icons" href="tel:+1234567890"><i class="fas fa-phone"></i></a>
-            <a class="home-contactus-icons" href="https://www.facebook.com/profile.php?id=61574168444732&mibextid=wwXIfr&rdid=tH8k59jwGwSgMjCs&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1ALd8HnxwA%2F%3Fmibextid%3DwwXIfr" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a class="home-contactus-icons" href="https://www.instagram.com/pawtect_ph/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a class="home-contactus-icons" href="https://x.com/PAWTECT_PH" target="_blank"><i class="fab fa-x-twitter"></i></a>
-        </div>
-        <button class="home__shared-buttons" routerLink="/pawtector" (click)="scrollToTop()">Reach Out</button>
+  <!-- CONTACT US -->
+  <!-- CARD -->
+  <!-- HEADING TEXT -->
+  <!-- ICONS -->
+  <!-- BUTTON = TO PAWTECTOR -->
+  <div class="home__contactus">
+    <h3 class="home__do-card-heading">Contact Us</h3>
+    <div class="home__contactus-icon">
+      <a
+        class="home-contactus-icons"
+        href="mailto:info@pawtect.org"
+        target="_blank"
+        ><i class="fas fa-envelope"></i
+      ></a>
+      <a class="home-contactus-icons" href="tel:+1234567890"
+        ><i class="fas fa-phone"></i
+      ></a>
+      <a
+        class="home-contactus-icons"
+        href="https://www.facebook.com/profile.php?id=61574168444732&mibextid=wwXIfr&rdid=tH8k59jwGwSgMjCs&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1ALd8HnxwA%2F%3Fmibextid%3DwwXIfr"
+        target="_blank"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+      <a
+        class="home-contactus-icons"
+        href="https://www.instagram.com/pawtect_ph/"
+        target="_blank"
+        ><i class="fab fa-instagram"></i
+      ></a>
+      <a
+        class="home-contactus-icons"
+        href="https://x.com/PAWTECT_PH"
+        target="_blank"
+        ><i class="fab fa-x-twitter"></i
+      ></a>
     </div>
+    <button
+      class="home__shared-buttons"
+      routerLink="/pawtector"
+      (click)="scrollToTop()"
+    >
+      Reach Out
+    </button>
+  </div>
 </div>
