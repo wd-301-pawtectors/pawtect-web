@@ -57,10 +57,9 @@ export class HomeComponent {
   // HOW YOU CAN HELP US
 
   helpOptions = [
-    { image: 'assets/images/home/home-adopt-me.webp', buttonText: 'Adopt a Pet', link: '/our-pack' },
+    { image: 'assets/images/home/home-adopt-me.webp', buttonText: 'Adopt', link: '/our-pack' },
     { image: 'assets/images/home/home-donate.webp', buttonText: 'Donate', link: '/pawtector' },
     { image: 'assets/images/home/home-volunteer.webp', buttonText: 'Volunteer ', link: '/pawtector' },
     { image: 'assets/images/home/home-report.webp', buttonText: 'Report', link: '/pawtector' },
   ];
-  
 }
