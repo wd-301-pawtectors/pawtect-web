@@ -8,9 +8,8 @@ describe('PawtectorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PawtectorComponent]
-    })
-    .compileComponents();
+      imports: [PawtectorComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PawtectorComponent);
     component = fixture.componentInstance;
