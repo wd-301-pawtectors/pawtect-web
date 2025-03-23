@@ -9,6 +9,11 @@ import { Router, RouterModule } from '@angular/router';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+
+  scrollToTop() {
+  window.scrollTo(0, 0);
+}
+
   // HERO BANNER IMAGE
   imagePath: string = 'assets/images/home/home-banner.webp';
 

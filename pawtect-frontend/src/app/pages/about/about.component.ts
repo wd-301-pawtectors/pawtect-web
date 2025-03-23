@@ -8,6 +8,11 @@ import { Router, RouterModule } from '@angular/router';
   styleUrl: './about.component.scss'
 })
 export class AboutComponent {
+
+scrollToTop() {
+  window.scrollTo(0, 0);
+}
+  
   constructor(private router: Router) {}
 
   //HEADING IMAGE

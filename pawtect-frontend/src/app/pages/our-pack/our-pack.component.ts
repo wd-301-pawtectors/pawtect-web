@@ -12,6 +12,11 @@ import { RouterModule } from '@angular/router';
   imports: [CommonModule, FormsModule, RouterModule]
 })
 export class OurPackComponent implements OnInit {
+
+  scrollToTop() {
+  window.scrollTo(0, 0);
+}
+
   animals: any[] = [];
   filteredAnimals: any[] = [];
   isModalOpen = false;

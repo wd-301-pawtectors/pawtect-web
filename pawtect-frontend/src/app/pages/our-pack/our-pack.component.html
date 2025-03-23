@@ -99,7 +99,7 @@
             <p class="modal__info">Weight: <strong>{{ selectedAnimal?.weight }}</strong></p>
             <p class="modal__info">Size:<strong>{{ selectedAnimal?.size }}</strong></p>
             <p class="modal__desc"><strong>Description:</strong><br> {{ selectedAnimal?.description }}</p>
-            <button class="modal__btn" routerLink="/pawtector">Be My Human</button>
+            <button class="modal__btn" routerLink="/pawtector" (click)="scrollToTop()">Be My Human</button>
         </div>
     </div>
 </div>
@@ -111,6 +111,6 @@
         <p class="pet-match__container__description">
             Can't find the pet you're looking for? Let us know, and we'll help you find the perfect match!
         </p>
-        <button class="pet-match__button" routerLink="/pawtector">Get in Touch</button>
+        <button class="pet-match__button" routerLink="/pawtector" (click)="scrollToTop()">Get in Touch</button>
     </section>
 </div>
